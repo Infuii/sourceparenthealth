@@ -38,7 +38,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(goForward, 3000);
+    const timer = setTimeout(goForward, 5000);
     return () => clearTimeout(timer);
   }, [currentTestimonial]);
   useEffect(() => {
@@ -47,7 +47,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
   useEffect(() => {
     setIsLoaded(false);
     const fadeInTimer = setTimeout(() => setIsLoaded(true), 500);
-    const fadeOutTimer = setTimeout(() => setIsLoaded(false), 2500);
+    const fadeOutTimer = setTimeout(() => setIsLoaded(false), 4500);
     return () => {
       clearTimeout(fadeInTimer);
       clearTimeout(fadeOutTimer);
@@ -56,7 +56,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-4 bg-gray-400 ${
+      className={`flex flex-col items-center justify-center gap-4 bg-[#C3C3C3] ${
         isTestominialsVisible ? "opacity-100" : "opacity-0"
       } transition-opacity duration-700`}
     >

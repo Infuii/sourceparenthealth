@@ -4,6 +4,7 @@ import Scroller from "./components/Scroller";
 import AuthShowcase from "./components/AuthShowcase";
 import Testimonials from "./components/Testimonials";
 import Introduction from "./components/Introduction";
+import Socials from "./components/Socials";
 
 const testimonialList = [
   {
@@ -65,6 +66,9 @@ export default function Home() {
       </div>
       <div className="transition-opacity duration-500">
         <Testimonials testimonials={testimonialList} />
+      </div>
+      <div>
+        <Socials />
       </div>
     </div>
   );
