@@ -1,4 +1,3 @@
-import { signIn, signOut } from "next-auth/react";
 import { api } from "~/utils/api";
 
 export default function AuthShowcase({ sessionData }) {

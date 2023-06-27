@@ -2,8 +2,11 @@
 import { useEffect, useState } from "react";
 import { signOut, signIn } from "next-auth/react";
 import Link from "next/link";
-
-export default function Navbar({ sessionData }) {
+import { type Session } from "next-auth";
+interface NavbarProps {
+  sessionData: Session;
+}
+export default function Navbar({ sessionData }: NavbarProps) {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
 
   useEffect(() => {
