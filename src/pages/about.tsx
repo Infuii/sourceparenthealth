@@ -2,6 +2,7 @@ import { useSession } from "next-auth/react";
 import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Scroller from "./components/Scroller";
+import Socials from "./components/Socials";
 
 export default function About() {
   const { data: sessionData } = useSession();
@@ -13,6 +14,7 @@ export default function About() {
       <div className="flex flex-col items-center gap-2">
         <AuthShowcase sessionData={sessionData} />
       </div>
+      <Socials />
     </div>
   );
 }
