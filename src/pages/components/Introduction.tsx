@@ -39,7 +39,7 @@ export default function Introduction() {
   });
 
   const [ref5, inView5] = useInView({
-    threshold: 0.3,
+    threshold: 0.1,
   });
 
   return (
@@ -419,7 +419,7 @@ export default function Introduction() {
         variants={fadeIn}
         initial="hidden"
         animate={inView1 ? "visible" : "hidden"}
-        transition={{ duration: 1.0, delay: 0.5 }}
+        transition={{ duration: 1.0, delay: 0.2 }}
       >
         <div className="flex w-2/3 gap-8">
           <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">

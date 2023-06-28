@@ -32,7 +32,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
       {sessionData && (
         <div className="flex items-center">
           <img
-            src={sessionData.user?.image}
+            src={sessionData.user?.image as string}
             alt="User Avatar"
             className="h-8 w-8 cursor-pointer rounded-full"
           />

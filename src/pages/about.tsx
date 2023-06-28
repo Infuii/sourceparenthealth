@@ -12,7 +12,7 @@ export default function About() {
       <Scroller />
       <Navbar sessionData={sessionData as never} />
       <div className="flex flex-col items-center gap-2">
-        <AuthShowcase sessionData={sessionData} />
+        <AuthShowcase sessionData={sessionData as never} />
       </div>
       <Socials />
     </div>
