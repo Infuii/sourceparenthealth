@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from "react";
 import { FaAddressBook, FaAngleUp, FaAward, FaGem } from "react-icons/fa";
+import { relative } from "path";
 
 export default function Introduction() {
   const fadeIn = {
@@ -22,29 +23,34 @@ export default function Introduction() {
   };
 
   const [ref1, inView1] = useInView({
-    threshold: 0.6,
+    threshold: 0.3,
   });
 
   const [ref2, inView2] = useInView({
-    threshold: 0.6,
+    threshold: 0.3,
   });
 
   const [ref3, inView3] = useInView({
-    threshold: 0.6,
+    threshold: 0.3,
   });
 
   const [ref4, inView4] = useInView({
-    threshold: 0.6,
+    threshold: 0.3,
+  });
+
+  const [ref5, inView5] = useInView({
+    threshold: 0.3,
   });
 
   return (
     <div>
-      <div className="flex items-center justify-center">
+      <div className="relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className="justify-top relative top-0 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-20 shadow-lg"
+          className="justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-20 shadow-lg"
           style={{
-            height: "45vh",
+            height: "100vh",
+            width: "200vh",
             backgroundBlendMode: "multiply",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             backgroundImage:
@@ -55,29 +61,45 @@ export default function Introduction() {
         >
           <hr className="h-3 border-gray-300"></hr>
           <motion.h1
-            className="relative top-5 text-5xl font-light"
+            ref={ref5}
+            className="relative top-5 text-5xl font-light text-white"
+            transition={{ duration: 1.0, delay: 0.2 }}
+            initial="hidden"
+            animate={inView5 ? "visible" : "hidden"}
             variants={fadeIn}
-            transition={{ duration: 0.8 }}
           >
             Welcome to Source Parent Health!
           </motion.h1>
           <motion.h5
-            className="relative top-5 text-2xl font-light"
+            ref={ref5}
+            className="relative top-5 text-2xl font-light text-white"
             variants={fadeIn}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial="hidden"
+            transition={{ duration: 1.1, delay: 0.5 }}
+            animate={inView5 ? "visible" : "hidden"}
           >
             A new and upcoming business that is dedicated to making YOUR life
             more special
           </motion.h5>
           <motion.p
-            className="relative top-5 tracking-wide text-gray-500"
+            ref={ref5}
+            className="relative top-5 tracking-wide text-gray-500 text-white"
             style={{ fontFamily: "Montserrat" }}
             variants={fadeIn}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial="hidden"
+            transition={{ duration: 1.2, delay: 0.8 }}
+            animate={inView5 ? "visible" : "hidden"}
           >
             Build, grow, and develop your wellness lifestyle to suit your needs.
           </motion.p>
-          <div className="flex gap-4">
+          <motion.div
+            className="flex gap-4"
+            ref={ref5}
+            variants={fadeIn}
+            initial="hidden"
+            transition={{ duration: 1.3, delay: 1.1 }}
+            animate={inView5 ? "visible" : "hidden"}
+          >
             <Link
               href="/courses"
               className="relative top-5 rounded-lg bg-blue-500 px-4 py-2 text-white"
@@ -86,14 +108,15 @@ export default function Introduction() {
             </Link>
             <Link
               href="/about"
-              className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2"
+              className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-white"
             >
               Learn More
             </Link>
-          </div>
+          </motion.div>
           <motion.div
             ref={ref4}
-            className="mt-12 flex w-4/5 justify-center gap-12"
+            className="mt-16 flex w-4/5 justify-center gap-12"
+            style={{ position: "relative", top: "10vh" }}
             variants={combination}
             transition={{ duration: 1.0 }}
             initial="hidden"
@@ -107,14 +130,14 @@ export default function Introduction() {
                 <FaAddressBook className="text-6xl text-blue-500" />
               </div>
               <motion.h2
-                className="relative top-5 text-3xl font-light"
+                className="relative top-5 text-3xl font-light text-white"
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Connect with Experts
               </motion.h2>
               <motion.p
-                className="relative top-5 tracking-wide text-gray-500"
+                className="relative top-5 tracking-wide text-gray-300"
                 style={{ fontFamily: "Montserrat" }}
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -130,14 +153,14 @@ export default function Introduction() {
                 <FaAward className="text-6xl text-yellow-500" />
               </div>
               <motion.h2
-                className="relative top-5 text-3xl font-light"
+                className="relative top-5 text-3xl font-light text-white"
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Achieve Your Goals
               </motion.h2>
               <motion.p
-                className="relative top-5 tracking-wide text-gray-500"
+                className="relative top-5 tracking-wide text-gray-300"
                 style={{ fontFamily: "Montserrat" }}
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -153,14 +176,14 @@ export default function Introduction() {
                 <FaGem className="text-6xl text-pink-500" />
               </div>
               <motion.h2
-                className="relative top-5 text-3xl font-light"
+                className="relative top-5 text-3xl font-light text-white"
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Experience Luxury
               </motion.h2>
               <motion.p
-                className="relative top-5 tracking-wide text-gray-500"
+                className="relative top-5 tracking-wide text-gray-300"
                 style={{ fontFamily: "Montserrat" }}
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -170,74 +193,107 @@ export default function Introduction() {
             </motion.div>
           </motion.div>
         </motion.div>
-      </div>
-
-      <div
-        className="flex items-center"
-        style={{
-          height: "40vh",
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1597571063304-81f081944ee8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+        {/* contact info */}
         <motion.div
-          className="relative flex h-96 w-2/3 justify-center gap-4 rounded-lg bg-white bg-opacity-75 p-8 shadow-lg"
-          variants={slideIn}
+          ref={ref5}
+          className="absolute flex flex w-2/5 items-center justify-center"
+          transition={{ duration: 1.5, delay: 0.75 }}
           initial="hidden"
-          animate="visible"
+          animate={inView5 ? "visible" : "hidden"}
+          variants={fadeIn}
+          style={{ top: "65vh" }}
         >
-          <div className="relative w-1/4 flex-col">
-            <motion.h1
-              className="font-cursive text-6xl font-light tracking-wide"
-              variants={fadeIn}
-              transition={{ duration: 0.8 }}
-            >
-              Buy Our E-BOOK!
-            </motion.h1>
-            <br />
-            <motion.p
-              className="tracking-wide text-gray-600"
-              variants={fadeIn}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              et justo sed
-            </motion.p>
-            <br />
-            <Link
-              href="https://www.google.com"
-              className="rounded-lg bg-yellow-700 px-6 py-3 text-white"
-            >
-              Get a free viewing of our e-book!
-            </Link>
+          <div className="w-2/3">
+            <h1 className="text-center text-3xl font-light text-gray-300">
+              Sign up to our Newsletter
+            </h1>
+            <form className="mt-8">
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="w-full">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2 focus:border-indigo-500 focus:outline-none"
+                  />
+                </div>
+                <div className="w-full">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2 focus:border-indigo-500 focus:outline-none"
+                  />
+                </div>
+
+                <input
+                  placeholder="Message"
+                  className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2 focus:border-indigo-500 focus:outline-none"
+                ></input>
+              </div>
+
+              <div className="mt-4">
+                <button className="w-full rounded-lg bg-blue-500 px-4 py-2 text-white">
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
         </motion.div>
-        <div className="flex w-1/3 items-center justify-center">
-          <motion.img
-            src="https://freesvg.org/img/1488738791.png"
-            alt="E-Book"
-            className="h-80"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.8 }}
-          />
-        </div>
       </div>
+
+      <motion.div
+        ref={ref4}
+        className="mt-12 flex justify-center gap-12 text-center"
+        variants={combination}
+        transition={{ duration: 2.0, delay: 0.5 }}
+        initial="hidden"
+        animate={inView4 ? "hidden" : "visible"}
+      >
+        <div className="relative w-1/5 flex-col">
+          <motion.h1 className="font-cursive text-6xl font-light tracking-wide">
+            Buy Our E-BOOK!
+          </motion.h1>
+          <br />
+          <motion.p className="tracking-wide text-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam et
+            justo sed
+          </motion.p>
+          <br />
+          <Link
+            href="https://www.google.com"
+            className="rounded-lg bg-yellow-700 px-6 py-3 text-white"
+          >
+            Get a free viewing of our e-book!
+          </Link>
+        </div>
+      </motion.div>
+      <br />
+      <br />
+      <br />
+      {/* <div className="flex w-1/3 items-center justify-center">
+        <motion.img
+          src="https://freesvg.org/img/1488738791.png"
+          alt="E-Book"
+          className="h-80"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.8 }}
+        />
+      </div> */}
+
       {/* Additional Boxes */}
 
       <div className="flex items-center justify-center">
         <motion.article
           ref={ref4}
-          className="rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8"
+          className="rounded-xl bg-white p-4 text-center ring ring-indigo-50 sm:p-6 lg:p-8"
           variants={slideIn}
           initial="hidden"
-          animate={inView4 ? "visible" : "hidden"}
+          animate={inView4 ? "hidden" : "visible"}
+          transition={{ duration: 2.25, delay: 1.0 }}
         >
           <div className="flex items-start sm:gap-8">
             <div
-              className="hidden sm:grid sm:h-20 sm:w-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
+              className="hidden text-center sm:grid sm:h-20 sm:w-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
               aria-hidden="true"
             >
               <div className="flex items-center gap-1">
@@ -326,38 +382,30 @@ export default function Introduction() {
           </motion.p>
         </motion.div>
       </div>
-      <div className="flex items-center justify-center">
-        <motion.div
-          ref={ref2}
-          className="relative flex h-96 w-3/5 flex-col items-start justify-center gap-4 rounded-lg bg-yellow-200 p-8 shadow-lg"
-          variants={slideIn}
-          initial="hidden"
-          animate={inView2 ? "visible" : "hidden"}
+      {/* <div className="flex items-center justify-center">
+        <motion.h1
+          className="text-4xl font-bold"
+          variants={fadeIn}
+          transition={{ duration: 0.8 }}
         >
-          <motion.h1
-            className="text-4xl font-bold"
-            variants={fadeIn}
-            transition={{ duration: 0.8 }}
-          >
-            Pictures
-          </motion.h1>
-          <motion.p
-            className="text-gray-500"
-            variants={fadeIn}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Explore our collection of pictures
-          </motion.p>
-          <Link
-            href="/pictures"
-            className="text-blue-500 underline"
-            variants={fadeIn}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            View pictures
-          </Link>
-        </motion.div>
-      </div>
+          Pictures
+        </motion.h1>
+        <motion.p
+          className="text-gray-500"
+          variants={fadeIn}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          Explore our collection of pictures
+        </motion.p>
+        <Link
+          href="/pictures"
+          className="text-blue-500 underline"
+          variants={fadeIn}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          View pictures
+        </Link>
+      </div> */}
 
       {/* Membership Plans */}
       <br />
@@ -365,7 +413,14 @@ export default function Introduction() {
       <div className="text-center text-3xl font-light">
         <h1>Build your wellness lifestyle with our courses!</h1>
       </div>
-      <div className="mt-12 flex items-center justify-center">
+      <motion.div
+        className="mt-12 flex items-center justify-center"
+        ref={ref1}
+        variants={fadeIn}
+        initial="hidden"
+        animate={inView1 ? "visible" : "hidden"}
+        transition={{ duration: 1.0, delay: 0.5 }}
+      >
         <div className="flex w-2/3 gap-8">
           <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">
             <FaAddressBook color="#FF00FF" size={70} />
@@ -401,6 +456,90 @@ export default function Introduction() {
             </button>
           </div>
         </div>
+      </motion.div>
+      <div className="mt-10 flex items-center justify-center">
+        <motion.div
+          ref={ref2}
+          className="flex w-4/5 items-center gap-4"
+          variants={slideIn}
+          initial="hidden"
+          animate={inView2 ? "visible" : "hidden"}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="w-1/2">
+            <img
+              src="https://images.pexels.com/photos/3791466/pexels-photo-3791466.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              alt="Fitness"
+              className="h-auto w-full rounded-lg shadow-lg"
+            />
+          </div>
+          <div className="w-1/2">
+            <h2 className="text-3xl font-semibold">Fitness</h2>
+            <p className="text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              rutrum, metus quis eleifend sollicitudin, lacus elit faucibus
+              tortor, sed molestie enim arcu et nibh. Curabitur fermentum felis
+              id ultrices cursus. Curabitur sodales felis sed tortor aliquet,
+              sed vulputate elit condimentum.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+      <div className="mt-10 flex items-center justify-center">
+        <motion.div
+          ref={ref3}
+          className="flex w-4/5 items-center gap-4"
+          variants={slideIn}
+          initial="hidden"
+          animate={inView3 ? "visible" : "hidden"}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="w-1/2">
+            <h2 className="text-3xl font-semibold">Nutrition</h2>
+            <p className="text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              rutrum, metus quis eleifend sollicitudin, lacus elit faucibus
+              tortor, sed molestie enim arcu et nibh. Curabitur fermentum felis
+              id ultrices cursus. Curabitur sodales felis sed tortor aliquet,
+              sed vulputate elit condimentum.
+            </p>
+          </div>
+          <div className="w-1/2">
+            <img
+              src="https://images.pexels.com/photos/6200979/pexels-photo-6200979.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              alt="Nutrition"
+              className="h-auto w-full rounded-lg shadow-lg"
+            />
+          </div>
+        </motion.div>
+      </div>
+      <div className="mt-10 flex items-center justify-center">
+        <motion.div
+          ref={ref4}
+          className="flex w-4/5 items-center gap-4"
+          variants={slideIn}
+          initial="hidden"
+          animate={inView4 ? "visible" : "hidden"}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="w-1/2">
+            <img
+              src="https://scontent-bos5-1.xx.fbcdn.net/v/t39.30808-6/335067741_881350312975397_3784625920049088698_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=0XarZ73yRNsAX9F6rqC&_nc_ht=scontent-bos5-1.xx&oh=00_AfAYcRpmq_e6ABDIKcGsxLOhKXsI_R3hUyayAq7-fEOWeg&oe=64A04577"
+              alt="Nutrition"
+              className="h-auto w-full rounded-lg shadow-lg"
+            />
+          </div>
+          <div className="w-1/2">
+            <h2 className="text-3xl font-semibold">Nutrition</h2>
+            <p className="text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              rutrum, metus quis eleifend sollicitudin, lacus elit faucibus
+              tortor, sed molestie enim arcu et nibh. Curabitur fermentum felis
+              id ultrices cursus. Curabitur sodales felis sed tortor aliquet,
+              sed vulputate elit condimentum.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

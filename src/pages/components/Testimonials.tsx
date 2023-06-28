@@ -107,12 +107,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
               <p className="inline -rotate-3 transform text-9xl  text-gray-500">
                 &ldquo;
               </p>
-              <span className="inline">
-                {testimonials[currentTestimonial]?.body}
-              </span>
-              <p className="inline rotate-3 transform text-9xl  text-gray-500">
-                &rdquo;
-              </p>
+              <span>{testimonials[currentTestimonial]?.body}</span>
             </blockquote>
           </div>
         </div>
