@@ -28,6 +28,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/courses">Courses</Link>
+        <Link href="/pictures">Pictures</Link>
       </div>
       {sessionData && (
         <div className="flex items-center">

@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from "react";
 import { FaAddressBook, FaAngleUp, FaAward, FaGem } from "react-icons/fa";
-import { relative } from "path";
+import { useRef } from "react";
+import { animateScroll as scroll } from "react-scroll";
 
 export default function Introduction() {
   const fadeIn = {
@@ -41,13 +42,14 @@ export default function Introduction() {
   const [ref5, inView5] = useInView({
     threshold: 0.1,
   });
+  const ebookRef = useRef(null);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <div className="relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className="justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-20 shadow-lg"
+          className="justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-10 shadow-lg sm:w-2/3 sm:px-20 md:w-1/2"
           style={{
             height: "100vh",
             width: "200vh",
@@ -62,7 +64,7 @@ export default function Introduction() {
           <hr className="h-3 border-gray-300"></hr>
           <motion.h1
             ref={ref5}
-            className="relative top-5 text-5xl font-light text-white"
+            className="relative top-5 text-5xl font-light text-white sm:text-6xl md:text-7xl"
             transition={{ duration: 1.0, delay: 0.2 }}
             initial="hidden"
             animate={inView5 ? "visible" : "hidden"}
@@ -72,7 +74,7 @@ export default function Introduction() {
           </motion.h1>
           <motion.h5
             ref={ref5}
-            className="relative top-5 text-2xl font-light text-white"
+            className="relative top-5 text-2xl font-light text-white sm:text-3xl md:text-4xl"
             variants={fadeIn}
             initial="hidden"
             transition={{ duration: 1.1, delay: 0.5 }}
@@ -93,7 +95,7 @@ export default function Introduction() {
             Build, grow, and develop your wellness lifestyle to suit your needs.
           </motion.p>
           <motion.div
-            className="flex gap-4"
+            className="flex flex-col gap-4 sm:flex-row"
             ref={ref5}
             variants={fadeIn}
             initial="hidden"
@@ -115,7 +117,7 @@ export default function Introduction() {
           </motion.div>
           <motion.div
             ref={ref4}
-            className="mt-16 flex w-4/5 justify-center gap-12"
+            className="mt-16 flex w-4/5 justify-center gap-12 sm:w-3/4 md:w-2/3"
             style={{ position: "relative", top: "10vh" }}
             variants={combination}
             transition={{ duration: 1.0 }}
@@ -203,8 +205,8 @@ export default function Introduction() {
           variants={fadeIn}
           style={{ top: "65vh" }}
         >
-          <div className="w-2/3">
-            <h1 className="text-center text-3xl font-light text-gray-300">
+          <div className="w-2/3" style={{ position: "relative", top: "10vh" }}>
+            <h1 className="text-center text-3xl text-gray-300">
               Sign up to our Newsletter
             </h1>
             <form className="mt-8">
@@ -240,32 +242,6 @@ export default function Introduction() {
         </motion.div>
       </div>
 
-      <motion.div
-        ref={ref4}
-        className="mt-12 flex justify-center gap-12 text-center"
-        variants={combination}
-        transition={{ duration: 2.0, delay: 0.5 }}
-        initial="hidden"
-        animate={inView4 ? "hidden" : "visible"}
-      >
-        <div className="relative w-1/5 flex-col">
-          <motion.h1 className="font-cursive text-6xl font-light tracking-wide">
-            Buy Our E-BOOK!
-          </motion.h1>
-          <br />
-          <motion.p className="tracking-wide text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam et
-            justo sed
-          </motion.p>
-          <br />
-          <Link
-            href="https://www.google.com"
-            className="rounded-lg bg-yellow-700 px-6 py-3 text-white"
-          >
-            Get a free viewing of our e-book!
-          </Link>
-        </div>
-      </motion.div>
       <br />
       <br />
       <br />
@@ -307,13 +283,12 @@ export default function Introduction() {
 
             <div>
               <strong className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white">
-                Episode #101
+                Wellness E-Book
               </strong>
 
               <h3 className="mt-4 text-lg font-medium sm:text-xl">
                 <a href="" className="hover:underline">
-                  {" "}
-                  Some Interesting Podcast Title{" "}
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </a>
               </h3>
 
@@ -323,6 +298,14 @@ export default function Introduction() {
                 necessitatibus eius suscipit eum accusamus, aperiam voluptas
                 exercitationem facere aliquid fuga. Sint.
               </p>
+              <button
+                onClick={() =>
+                  scroll.scrollTo(ebookRef.current.offsetTop, { smooth: true })
+                }
+                className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-white"
+              >
+                Learn More
+              </button>
 
               <div className="mt-4 sm:flex sm:items-center sm:gap-2">
                 <div className="flex items-center gap-1 text-gray-500">
@@ -541,6 +524,30 @@ export default function Introduction() {
           </div>
         </motion.div>
       </div>
+      <motion.div
+        ref={ebookRef}
+        className="mt-12 flex justify-center gap-12 text-center"
+        variants={combination}
+        transition={{ duration: 2.0, delay: 0.5 }}
+      >
+        <div className="relative w-1/5 flex-col bg-pink-100 p-10">
+          <motion.h1 className="text-6xl font-light tracking-wide">
+            Buy Our E-BOOK!
+          </motion.h1>
+          <br />
+          <motion.p className="font-raleway tracking-wide text-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam et
+            justo sed
+          </motion.p>
+          <br />
+          <Link
+            href="https://www.google.com"
+            className="rounded-lg bg-yellow-700 px-6 py-3 text-white"
+          >
+            Get a free viewing of our e-book!
+          </Link>
+        </div>
+      </motion.div>
     </div>
   );
 }
