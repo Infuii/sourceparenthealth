@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";

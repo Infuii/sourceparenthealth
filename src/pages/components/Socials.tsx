@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
   FaFacebook,
   FaInstagram,

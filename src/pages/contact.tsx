@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Scroller from "./components/Scroller";
