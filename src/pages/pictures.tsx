@@ -66,7 +66,7 @@ export default function Pictures() {
   const clearFilters = () => {
     setSelectedCategories([]);
   };
-  const openImage = (item) => {
+  const openImage = (item: React.SetStateAction<null>) => {
     setSelectedImage(item);
     setIsModalOpen(true);
   };
@@ -163,14 +163,14 @@ export default function Pictures() {
             <div className="flex flex-col items-center gap-4">
               <div className="border border-white">
                 <Image
-                  src={selectedImage.url} // Use the selected image's URL
-                  alt={selectedImage.name}
+                  src={selectedImage?.url as string} // Use the selected image's URL
+                  alt={selectedImage?.name as string}
                   width={400}
                   height={600}
                 />
               </div>
               <h1 className="text-3xl font-bold text-white">
-                {selectedImage.name}
+                {selectedImage?.name as string}
               </h1>
             </div>
           </div>

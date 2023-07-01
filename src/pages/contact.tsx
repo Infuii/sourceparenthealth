@@ -10,8 +10,10 @@ export default function Contact() {
   const [activeQuestion, setActiveQuestion] = useState(null);
   const [fadeIn, setFadeIn] = useState(false);
 
-  const handleQuestionClick = (index) => {
-    setActiveQuestion((prevIndex) => (prevIndex === index ? null : index));
+  const handleQuestionClick = (index: number) => {
+    setActiveQuestion((prevIndex: number | null) =>
+      prevIndex === index ? null : index
+    );
   };
 
   const FAQData = [

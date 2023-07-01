@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import smtpTransport from "nodemailer-smtp-transport";
 
-export default async function handler(req, res) {
+export default async function handler(req: { method: string; body: { name: any; email: any; message: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): void; new(): any; }; }; }) {
   if (req.method === "POST") {
     const { name, email, message } = req.body;
 

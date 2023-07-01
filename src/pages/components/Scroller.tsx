@@ -18,9 +18,10 @@ export default function Scroller() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <motion.div
-      className="fixed left-0 top-0 z-20 h-2 w-full bg-blue-500"
+      className="fixed z-50 h-2 w-full bg-black"
       initial={{ width: 0 }}
       animate={{ width: `${scrollProgress}%` }}
     />

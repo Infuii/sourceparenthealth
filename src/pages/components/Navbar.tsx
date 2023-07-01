@@ -15,7 +15,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed z-10 flex w-full items-center justify-between bg-[#E9E9E9] px-6 py-3 ${
+      className={`fixed top-2 z-50 flex w-full items-center justify-between bg-[#E9E9E9] px-6 py-2 ${
         isNavbarVisible ? "opacity-100" : "opacity-0"
       } transition-opacity duration-700`}
     >

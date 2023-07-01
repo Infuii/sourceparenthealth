@@ -6,8 +6,21 @@ import React from "react";
 import { FaAddressBook, FaAngleUp, FaAward, FaGem } from "react-icons/fa";
 import { useRef } from "react";
 import { animateScroll as scroll } from "react-scroll";
+import { BookOpen, Download } from "react-feather"; // SVG icons from Feather Icons
+import { AnimatePresence } from "framer-motion";
 
 export default function Introduction() {
+  const { ref: heroRef, inView: heroInView } = useInView({
+    threshold: 0.1,
+  });
+
+  const { ref: subtitleRef, inView: subtitleInView } = useInView({
+    threshold: 0.1,
+  });
+
+  const { ref: imgRef, inView: imgInView } = useInView({
+    threshold: 0.1,
+  });
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -43,13 +56,24 @@ export default function Introduction() {
     threshold: 0.1,
   });
   const ebookRef = useRef(null);
+  const title = "WELLNESS E-BOOK";
+  const subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+  const letterVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.15 } },
+  };
+
+  const ebookCoverSrc = "https://picsum.photos/200/300";
+  const backgroundCoverSrc =
+    "https://images.unsplash.com/photo-1498496294664-d9372eb521f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80";
 
   return (
-    <div className="overflow-hidden">
-      <div className="relative flex items-center justify-center">
+    <div className="z-1 relative overflow-hidden">
+      <div className="z-1 relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className="justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-10 shadow-lg sm:w-2/3 sm:px-20 md:w-1/2"
+          className=" z-1 justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-10 shadow-lg sm:w-2/3 sm:px-20 md:w-1/2"
           style={{
             height: "100vh",
             width: "200vh",
@@ -300,7 +324,7 @@ export default function Introduction() {
               </p>
               <button
                 onClick={() =>
-                  scroll.scrollTo(ebookRef.current.offsetTop, { smooth: true })
+                  scroll.scrollTo(ebookRef.current?.offsetTop, { smooth: true })
                 }
                 className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-white"
               >
@@ -391,9 +415,11 @@ export default function Introduction() {
       </div> */}
 
       {/* Membership Plans */}
-      <br />
 
-      <div className="text-center text-3xl font-light">
+      <div
+        className="text-center text-3xl font-light"
+        style={{ position: "relative", top: "-20vh" }}
+      >
         <h1>Build your wellness lifestyle with our courses!</h1>
       </div>
       <motion.div
@@ -403,6 +429,7 @@ export default function Introduction() {
         initial="hidden"
         animate={inView1 ? "visible" : "hidden"}
         transition={{ duration: 1.0, delay: 0.2 }}
+        style={{ position: "relative", top: "-20vh" }}
       >
         <div className="flex w-2/3 gap-8">
           <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">
@@ -524,29 +551,70 @@ export default function Introduction() {
           </div>
         </motion.div>
       </div>
+      <br />
       <motion.div
         ref={ebookRef}
-        className="mt-12 flex justify-center gap-12 text-center"
-        variants={combination}
-        transition={{ duration: 2.0, delay: 0.5 }}
+        className="relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden text-white"
+        style={{
+          backgroundImage: `url(${backgroundCoverSrc})`,
+        }}
       >
-        <div className="relative w-1/5 flex-col bg-pink-100 p-10">
-          <motion.h1 className="text-6xl font-light tracking-wide">
-            Buy Our E-BOOK!
-          </motion.h1>
-          <br />
-          <motion.p className="font-raleway tracking-wide text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam et
-            justo sed
-          </motion.p>
-          <br />
-          <Link
-            href="https://www.google.com"
-            className="rounded-lg bg-yellow-700 px-6 py-3 text-white"
+        <motion.div
+          className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-md backdrop-filter"
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1 }}
+        />
+        <AnimatePresence>
+          <motion.div className="z-10 mb-8 flex w-2/5 justify-center sm:w-1/4 md:w-1/5">
+            <BookOpen color="#fff" size={48} />
+          </motion.div>
+          <motion.img
+            ref={imgRef}
+            src={ebookCoverSrc} // maybe change to https://fastly.picsum.photos/id/959/200/300.jpg?hmac=q2WZ7w-aqWQyUVa4vEv-28yCS6TLS-M19or3y7YVvso
+            alt="E-Book Cover"
+            className="z-10 mb-8 w-2/5 rounded object-cover sm:w-1/4 md:w-1/5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: imgInView ? 1 : 0 }}
+            transition={{ duration: 1 }}
+          />
+          <motion.div
+            ref={heroRef}
+            className="z-10 mb-4 text-5xl font-bold tracking-wide"
           >
-            Get a free viewing of our e-book!
-          </Link>
-        </div>
+            {title.split("").map((char, index) => (
+              <motion.span
+                key={char + "-" + index}
+                initial="hidden"
+                animate={heroInView ? "visible" : "hidden"}
+                transition={{ delay: index * 0.25, duration: 5 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
+          <motion.p
+            ref={subtitleRef}
+            className="font-raleway z-10 mb-6 tracking-wide"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: subtitleInView ? 1 : 0 }}
+            transition={{ duration: 1 }}
+          >
+            {subtitle}
+          </motion.p>
+          <motion.a
+            href="https://www.google.com"
+            className="z-10 flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold tracking-wide text-black transition-colors duration-200 hover:border-black hover:bg-purple-300"
+            whileHover={{ scale: 1.1 }}
+          >
+            <Download color="#8B5CF6" size={24} /> Get a free viewing of our
+            e-book!
+          </motion.a>
+        </AnimatePresence>
       </motion.div>
     </div>
   );
