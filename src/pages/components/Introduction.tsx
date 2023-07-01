@@ -233,31 +233,44 @@ export default function Introduction() {
             <h1 className="text-center text-3xl text-gray-300">
               Sign up to our Newsletter
             </h1>
-            <form className="mt-8">
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="w-full">
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  />
-                </div>
-                <div className="w-full">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  />
-                </div>
+            <form
+              className="mt-8"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const { email } = e.target.elements;
 
+                try {
+                  const response = await fetch("/api/newsletter", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email: email.value }),
+                  });
+
+                  if (response.ok) {
+                    alert("You have successfully signed up for the newsletter");
+                    e.target.reset();
+                  } else {
+                    alert("Error signing up for the newsletter");
+                  }
+                } catch (error) {
+                  console.error("Error:", error);
+                  alert("Error signing up for the newsletter");
+                }
+              }}
+            >
+              <div className="w-full">
                 <input
-                  placeholder="Message"
-                  className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                ></input>
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
+                  required
+                />
               </div>
-
               <div className="mt-4">
-                <button className="w-full rounded-lg bg-blue-500 px-4 py-2 text-white">
+                <button className="w-full rounded-lg bg-indigo-500 px-4 py-2 text-white">
                   Submit
                 </button>
               </div>

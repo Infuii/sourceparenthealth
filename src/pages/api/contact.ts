@@ -1,12 +1,12 @@
 import nodemailer from "nodemailer";
 import smtpTransport from "nodemailer-smtp-transport";
 
-export default async function handler(req: { method: string; body: { name: any; email: any; message: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): void; new(): any; }; }; }) {
+export default async function handler(req: { method: string; body: { name: unknown; email: never; message: unknown; }; }, res: { status: (arg0: number) => { (): unknown; new(): unknown; json: { (arg0: { message: string; }): void; new(): unknown; }; }; }) {
   if (req.method === "POST") {
     const { name, email, message } = req.body;
 
     // Create a transporter object for sending emails
-    const transporter = nodemailer.createTransport(
+    const transporter = nodemailer?.createTransport(
       smtpTransport({
         service: "Gmail", // Replace with your email provider (e.g., "Gmail", "Outlook")
         auth: {
@@ -25,7 +25,7 @@ export default async function handler(req: { method: string; body: { name: any; 
         from: email,
         to: mailList,
         subject: "Your email to Source Parent Health Life Support has been received!",
-        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+        text: `Name: ${name as string}\nEmail: ${email as string}\nMessage: ${message as string}`,
       });
 
       // Email sent successfully
