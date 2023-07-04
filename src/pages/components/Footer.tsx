@@ -1,8 +1,24 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React, { useState } from "react";
 import Link from "next/link";
+import {
+  FaYoutube,
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+} from "react-icons/fa";
 
 const Footer = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+
+  const validateEmail = (email: unknown) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email as string);
+  };
+
+  const isEnabled = validateEmail(email) && isChecked;
 
   return (
     <div style={{ position: "relative", top: "10vh" }}>
@@ -41,6 +57,9 @@ const Footer = () => {
           <Link href="https://linkedin.com">
             <p>LinkedIn</p>
           </Link>
+          <Link href="https://youtube.com">
+            <p>YouTube</p>
+          </Link>
         </div>
 
         {/* Contact section */}
@@ -60,19 +79,47 @@ const Footer = () => {
           <h2 className="mb-4 text-2xl font-semibold">
             Sign Up to the Newsletter
           </h2>
-          <form>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+
+              try {
+                const response = await fetch("/api/newsletter", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ email }),
+                });
+
+                if (response.ok) {
+                  alert("You have successfully signed up for the newsletter");
+                  setEmail("");
+                  setIsChecked(false);
+                } else {
+                  alert("Error signing up for the newsletter");
+                }
+              } catch (error) {
+                console.error("Error:", error);
+                alert("Error signing up for the newsletter");
+              }
+            }}
+          >
             <input
               type="email"
               placeholder="Your Email"
               required
-              className="mb-2 w-full rounded-lg border border-gray-200 px-4 py-2"
+              className="mb-2 w-full rounded-lg border border-gray-200 px-4 py-2 text-black"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <div className="flex items-center">
               <input
                 type="checkbox"
                 required
                 className="mr-2"
-                onChange={(e) => setIsEnabled(e.target.checked)}
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
               />
               <label>I want to subscribe to the newsletter</label>
             </div>
@@ -86,6 +133,44 @@ const Footer = () => {
               Submit
             </button>
           </form>
+        </div>
+        {/* Social Media Links */}
+        <div className="col-span-2 flex items-center justify-start space-x-4 text-gray-400 sm:col-span-1">
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube size={24} />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin size={24} />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTwitter size={24} />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram size={24} />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook size={24} />
+          </a>
         </div>
       </footer>
     </div>
