@@ -6,6 +6,7 @@ import Testimonials from "./components/Testimonials";
 import Introduction from "./components/Introduction";
 import Socials from "./components/Socials";
 import SocialsAlert from "./components/SocialsAlert";
+import Footer from "./components/Footer";
 
 const testimonialList = [
   {
@@ -74,6 +75,9 @@ export default function Home() {
       </div>
       <div>
         <Socials />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

@@ -326,7 +326,7 @@ export default function Introduction() {
 
               <h3 className="mt-4 text-lg font-medium sm:text-xl">
                 <a href="" className="hover:underline">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit
                 </a>
               </h3>
 
