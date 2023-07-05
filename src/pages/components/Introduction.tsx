@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import React from "react";
+import React, { useRef } from "react";
 import { FaAddressBook, FaAngleUp, FaAward, FaGem } from "react-icons/fa";
-import { useRef } from "react";
 import { animateScroll as scroll } from "react-scroll";
 import { BookOpen, Download } from "react-feather"; // SVG icons from Feather Icons
-import { AnimatePresence } from "framer-motion";
 
 export default function Introduction() {
   const { ref: heroRef, inView: heroInView } = useInView({
@@ -59,11 +57,6 @@ export default function Introduction() {
   const ebookRef = useRef(null);
   const title = "WELLNESS E-BOOK";
   const subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-
-  const letterVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.15 } },
-  };
 
   const ebookCoverSrc = "https://picsum.photos/200/300";
   const backgroundCoverSrc =
@@ -238,7 +231,7 @@ export default function Introduction() {
               className="mt-8"
               onSubmit={async (e) => {
                 e.preventDefault();
-                const { email } = e.target.elements;
+                const { email }: never = e.target.elements;
 
                 try {
                   const response = await fetch("/api/newsletter", {
@@ -246,7 +239,7 @@ export default function Introduction() {
                     headers: {
                       "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ email: email.value }),
+                    body: JSON.stringify({ email: email.value as string }),
                   });
 
                   if (response.ok) {
@@ -338,7 +331,9 @@ export default function Introduction() {
               </p>
               <button
                 onClick={() =>
-                  scroll.scrollTo(ebookRef.current?.offsetTop, { smooth: true })
+                  scroll.scrollTo(ebookRef?.current?.offsetTop as never, {
+                    smooth: true,
+                  })
                 }
                 className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-white"
               >
@@ -454,7 +449,7 @@ export default function Introduction() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <button className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-white">
-              Learn More
+              <Link href="/courses/1">Learn More</Link>
             </button>
           </div>
           <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">
@@ -465,7 +460,7 @@ export default function Introduction() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <button className="mt-4 rounded-lg bg-yellow-500 px-4 py-2 text-white">
-              Learn More
+              <Link href="/courses/2">Learn More</Link>
             </button>
           </div>
           <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">
@@ -476,7 +471,7 @@ export default function Introduction() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <button className="mt-4 rounded-lg bg-green-500 px-4 py-2 text-white">
-              Learn More
+              <Link href="/courses/3">Learn More</Link>
             </button>
           </div>
         </div>
@@ -585,7 +580,7 @@ export default function Introduction() {
           </motion.div>
           <motion.img
             ref={imgRef}
-            src={ebookCoverSrc} // maybe change to https://fastly.picsum.photos/id/959/200/300.jpg?hmac=q2WZ7w-aqWQyUVa4vEv-28yCS6TLS-M19or3y7YVvso
+            src={ebookCoverSrc} // maybe change to https://fastly.picsum.photos/id/377/200/300.jpg?hmac=veEWg3ApI7rkKqMF6MuaWBmxPgnEe-Ar9eDdMG3q-kk or https://fastly.picsum.photos/id/959/200/300.jpg?hmac=q2WZ7w-aqWQyUVa4vEv-28yCS6TLS-M19or3y7YVvso
             alt="E-Book Cover"
             className="z-10 mb-8 w-2/5 rounded object-cover sm:w-1/4 md:w-1/5"
             initial={{ opacity: 0 }}

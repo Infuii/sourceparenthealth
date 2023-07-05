@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Scroller from "./components/Scroller";
 import Socials from "./components/Socials";
+import Footer from "./components/Footer";
 
 export default function About() {
   const { data: sessionData } = useSession();
@@ -16,7 +17,7 @@ export default function About() {
       <Scroller />
       <Navbar sessionData={sessionData as never} />
       <div className="flex flex-col items-center gap-2">
-        <AuthShowcase sessionData={sessionData as never} />
+        <AuthShowcase />
 
         <motion.div
           className="flex flex-col items-center gap-2"
@@ -126,6 +127,7 @@ export default function About() {
         </motion.div>
         <Socials />
       </div>
+      <Footer />
     </div>
   );
 }

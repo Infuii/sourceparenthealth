@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Scroller from "./components/Scroller";
+import Footer from "./components/Footer";
 
 export default function Contact() {
   const { data: sessionData } = useSession();
@@ -45,10 +47,12 @@ export default function Contact() {
 
   return (
     <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
+      <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
+
       <Scroller />
       <Navbar sessionData={sessionData as never} />
       <div className="flex flex-col items-center gap-2">
-        <AuthShowcase sessionData={sessionData} />
+        <AuthShowcase />
       </div>
       <br />
       <br />
@@ -130,9 +134,9 @@ export default function Contact() {
                         "Content-Type": "application/json",
                       },
                       body: JSON.stringify({
-                        name: name.value,
-                        email: email.value,
-                        message: message.value,
+                        name: name.value as string,
+                        email: email.value as string,
+                        message: message.value as string,
                       }),
                     });
 
@@ -188,6 +192,8 @@ export default function Contact() {
         </motion.div>
       </div>
       <br />
+      <br />
+      <Footer />
     </div>
   );
 }

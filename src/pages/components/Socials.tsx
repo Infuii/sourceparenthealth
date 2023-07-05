@@ -39,7 +39,12 @@ const SocialMediaBox: React.FC<SocialMediaBoxProps> = ({
   return (
     <motion.div
       className="flex w-1/4 flex-col items-center justify-center p-16"
-      style={{ width: "10vh", height: "10vh" }}
+      style={{
+        width: "10vh",
+        height: "10vh",
+        position: "relative",
+        top: "-10vh",
+      }}
       initial="initial"
       animate="animate"
       whileHover="hover"

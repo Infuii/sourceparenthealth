@@ -31,8 +31,14 @@ const Footer = () => {
           <h2 className="mb-4 border-b border-gray-500 pb-2 text-lg font-semibold">
             Source Parent Health
           </h2>
+          <Link href="/">
+            <p>Home</p>
+          </Link>
           <Link href="/about">
             <p>About</p>
+          </Link>
+          <Link href="/courses">
+            <p>Courses</p>
           </Link>
           <Link href="/pictures">
             <p>Pictures</p>
@@ -45,19 +51,19 @@ const Footer = () => {
           <h2 className="mb-4 border-b border-gray-500 pb-2 text-lg font-semibold">
             Socials
           </h2>
-          <Link href="https://facebook.com">
+          <Link href="https://www.facebook.com/sarah.musavi.1">
             <p>Facebook</p>
           </Link>
-          <Link href="https://twitter.com">
+          <Link href="https://twitter.com/myhealthalive">
             <p>Twitter</p>
           </Link>
-          <Link href="https://instagram.com">
+          <Link href="https://www.instagram.com/organictreatments/">
             <p>Instagram</p>
           </Link>
-          <Link href="https://linkedin.com">
+          <Link href="https://www.linkedin.com/newsletters/6990131423105933313/">
             <p>LinkedIn</p>
           </Link>
-          <Link href="https://youtube.com">
+          <Link href="https://www.youtube.com/@sarahmusavi561/videos">
             <p>YouTube</p>
           </Link>
         </div>

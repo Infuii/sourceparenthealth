@@ -2,15 +2,9 @@ import React, { useState, useEffect } from "react";
 import { FaCheck, FaTimes, FaHeart, FaBrain, FaFeather } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import { useAnimation, motion } from "framer-motion";
-import { useSession } from "next-auth/react";
-import Scroller from "./components/Scroller";
-import Navbar from "./components/Navbar";
-import AuthShowcase from "./components/AuthShowcase";
 import Link from "next/link";
-import Footer from "./components/Footer";
 
-export default function Courses() {
-  const { data: sessionData } = useSession();
+export default function One() {
   const { ref, inView } = useInView({ threshold: 0.1 });
   const animation = useAnimation();
   const [pricingModel, setPricingModel] = useState("monthly");
@@ -71,76 +65,38 @@ export default function Courses() {
   ];
 
   return (
-    <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
-      <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
-
-      <Scroller />
-      <Navbar sessionData={sessionData as never} />
-      <div className="flex flex-col items-center gap-2">
-        <AuthShowcase />
-      </div>
-      <div className="mt-12 flex flex-col items-center justify-center">
-        <br />
-        <h1 className="text-4xl font-semibold">Courses</h1>
-      </div>
-      <div className="my-8 flex justify-center">
-        <button
-          className={`px-4 py-2 ${
-            pricingModel === "monthly"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-800"
-          }`}
-          onClick={() => setPricingModel("monthly")}
-        >
-          Monthly
-        </button>
-        <button
-          className={`px-4 py-2 ${
-            pricingModel === "yearly"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-800"
-          }`}
-          onClick={() => setPricingModel("yearly")}
-        >
-          Yearly
-        </button>
-      </div>
-      <motion.div
-        ref={ref}
-        className="mt-8 flex justify-center gap-4"
-        animate={animation}
-      >
-        {courses.map((course, index) => (
+    <motion.div
+      ref={ref}
+      className="mt-8 flex justify-center gap-4"
+      animate={animation}
+    >
+      {/* Just take the first course and render its box */}
+      {(() => {
+        const course = courses[0];
+        return (
           <motion.div
-            key={course.title}
-            className={`relative flex h-[500px] w-[350px] flex-col justify-between rounded-lg border border-t-4 border-black border-green-400 p-5 shadow shadow-xl transition-all duration-500 ease-in-out hover:border-8 ${
-              index === 1 ? "scale-105 transform text-black" : "bg-gray-100"
-            }`}
+            key={course?.title}
+            className={`relative flex h-full w-full flex-col justify-between rounded-lg border border-t-4 border-black border-green-400 bg-gray-100 p-5 shadow shadow-xl transition-all duration-500 ease-in-out hover:border-8 md:w-1/2`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: index * 0.5 }}
+            transition={{ delay: 0.5 }}
           >
-            <Link href={`/courses/${index + 1}`}>
-              {index === 1 && (
-                <div className="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 transform rounded bg-black px-2 py-1 text-lg text-white">
-                  POPULAR
-                </div>
-              )}
+            <Link href={`/courses/1`}>
               <div className="flex flex-col items-center justify-start space-y-4">
-                {course.icon}
-                <h1 className="text-xl font-semibold">{course.title}</h1>
-                <p className="text-sm">{course.description}</p>
+                {course?.icon}
+                <h1 className="text-xl font-semibold">{course?.title}</h1>
+                <p className="text-sm">{course?.description}</p>
                 <p className="font-serif text-lg font-bold text-gray-500">
                   Price:{" "}
                   {pricingModel === "monthly"
-                    ? course.monthlyPrice
-                    : course.yearlyPrice}
+                    ? course?.monthlyPrice
+                    : course?.yearlyPrice}
                   <span className="text-sm font-normal">/{pricingModel}</span>
                 </p>
               </div>
             </Link>
             <div className="py-2">
-              {course.advantages.map((advantage, index) => (
+              {course?.advantages.map((advantage, index) => (
                 <motion.div
                   key={index}
                   className="flex flex-row items-center space-x-2 py-1"
@@ -152,7 +108,7 @@ export default function Courses() {
                   <span className="text-sm text-gray-600">{advantage}</span>
                 </motion.div>
               ))}
-              {course.disadvantages?.map((disadvantage, index) => (
+              {course?.disadvantages?.map((disadvantage, index) => (
                 <motion.div
                   key={index}
                   className="flex flex-row items-center space-x-2 py-1"
@@ -174,11 +130,8 @@ export default function Courses() {
               </button>
             </div>
           </motion.div>
-        ))}
-      </motion.div>
-      <br />
-      <br />
-      <Footer />
-    </div>
+        );
+      })()}
+    </motion.div>
   );
 }

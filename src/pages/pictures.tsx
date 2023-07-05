@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Scroller from "./components/Scroller";
 import AuthShowcase from "./components/AuthShowcase";
+import Footer from "./components/Footer";
 
 export default function Pictures() {
   const { data: sessionData } = useSession();
@@ -74,13 +75,15 @@ export default function Pictures() {
   return (
     <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
       <Navbar sessionData={sessionData as never} />
+      <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
+
+      <Scroller />
       <br />
       <br />
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="flex flex-col items-center gap-2">
-          <AuthShowcase sessionData={sessionData as never} />
+          <AuthShowcase />
         </div>
-        <Scroller />
         <h1 className="text-4xl font-bold">Pictures</h1>
         <p className="text-xl">Coming soon!</p>
         <div className="flex gap-4">
@@ -127,7 +130,7 @@ export default function Pictures() {
                   isImageSelected ? "cursor-pointer" : ""
                 }`}
                 whileHover={{ y: isImageSelected ? -10 : 0 }}
-                onClick={() => openImage(item)}
+                onClick={() => openImage(item as never)}
               >
                 <h1 className="text-3xl font-bold">{item.name}</h1>
                 <div
@@ -176,6 +179,9 @@ export default function Pictures() {
           </div>
         </div>
       )}
+      <br />
+      <br />
+      <Footer />
     </div>
   );
 }

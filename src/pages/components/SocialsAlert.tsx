@@ -2,7 +2,6 @@
 export default function Footer() {
   return (
     <div>
-      <br />
       <div className="mt-10 flex flex-col items-center justify-center gap-4">
         <h1 className="text-center text-3xl font-light">
           Follow Us on Social Media
