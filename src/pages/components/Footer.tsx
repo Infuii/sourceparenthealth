@@ -143,35 +143,35 @@ const Footer = () => {
         {/* Social Media Links */}
         <div className="col-span-2 flex items-center justify-start space-x-4 text-gray-400 sm:col-span-1">
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@sarahmusavi561/videos"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaYoutube size={24} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/newsletters/6990131423105933313/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaLinkedin size={24} />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://twitter.com/myhealthalive"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaTwitter size={24} />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/organictreatments/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaInstagram size={24} />
           </a>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/sarah.musavi.1"
             target="_blank"
             rel="noopener noreferrer"
           >
