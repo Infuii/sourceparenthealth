@@ -89,7 +89,7 @@ const SocialMediaBox: React.FC<SocialMediaBoxProps> = ({
 const Socials: React.FC = () => {
   return (
     <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-row gap-8">
+      <div className="grid grid-cols-2 gap-8 sm:grid-cols-5">
         <SocialMediaBox
           icon={<FaFacebook className="text-6xl text-blue-500" />}
           followerCount={332}

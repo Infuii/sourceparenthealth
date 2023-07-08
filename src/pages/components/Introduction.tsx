@@ -135,7 +135,7 @@ export default function Introduction() {
           </motion.div>
           <motion.div
             ref={ref4}
-            className="mt-16 flex w-4/5 justify-center gap-12 sm:w-3/4 md:w-2/3"
+            className="mt-16 flex w-4/5 justify-center gap-12 sm:w-3/4 md:w-2/3 "
             style={{ position: "relative", top: "10vh" }}
             variants={combination}
             transition={{ duration: 1.0 }}
@@ -432,7 +432,7 @@ export default function Introduction() {
         <h1>Build your wellness lifestyle with our courses!</h1>
       </div>
       <motion.div
-        className="mt-12 flex items-center justify-center"
+        className="mt-12 flex flex-col items-center justify-center gap-8 sm:flex-row sm:items-start"
         ref={ref1}
         variants={fadeIn}
         initial="hidden"
@@ -440,42 +440,41 @@ export default function Introduction() {
         transition={{ duration: 1.0, delay: 0.2 }}
         style={{ position: "relative", top: "-20vh" }}
       >
-        <div className="flex w-2/3 gap-8">
-          <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">
-            <FaAddressBook color="#FF00FF" size={70} />
-            <br />
-            <h2 className="text-2xl font-bold">Basic Course</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <button className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-white">
-              <Link href="/courses/1">Learn More</Link>
-            </button>
-          </div>
-          <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">
-            <FaAward color="#FF00FF" size={70} />
-            <br />
-            <h2 className="text-2xl font-bold">Premium Course</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <button className="mt-4 rounded-lg bg-yellow-500 px-4 py-2 text-white">
-              <Link href="/courses/2">Learn More</Link>
-            </button>
-          </div>
-          <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg">
-            <FaGem color="#FF00FF" size={70} />
-            <br />
-            <h2 className="text-2xl font-bold">Exclusive Course</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <button className="mt-4 rounded-lg bg-green-500 px-4 py-2 text-white">
-              <Link href="/courses/3">Learn More</Link>
-            </button>
-          </div>
+        <div className="flex w-full flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg sm:mx-2 sm:my-4 sm:w-auto">
+          <FaAddressBook color="#FF00FF" size={70} />
+          <br />
+          <h2 className="text-2xl font-bold">Basic Course</h2>
+          <p className="text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+          <button className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-white">
+            <Link href="/courses/1">Learn More</Link>
+          </button>
+        </div>
+        <div className="flex w-full flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg sm:mx-2 sm:my-4 sm:w-auto">
+          <FaAward color="#FF00FF" size={70} />
+          <br />
+          <h2 className="text-2xl font-bold">Premium Course</h2>
+          <p className="text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+          <button className="mt-4 rounded-lg bg-yellow-500 px-4 py-2 text-white">
+            <Link href="/courses/2">Learn More</Link>
+          </button>
+        </div>
+        <div className="flex w-full flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg sm:mx-2 sm:my-4 sm:w-auto">
+          <FaGem color="#FF00FF" size={70} />
+          <br />
+          <h2 className="text-2xl font-bold">Exclusive Course</h2>
+          <p className="text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+          <button className="mt-4 rounded-lg bg-green-500 px-4 py-2 text-white">
+            <Link href="/courses/3">Learn More</Link>
+          </button>
         </div>
       </motion.div>
+
       <div className="mt-10 flex items-center justify-center">
         <motion.div
           ref={ref2}

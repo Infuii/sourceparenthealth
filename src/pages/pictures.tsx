@@ -151,7 +151,7 @@ export default function Pictures() {
       </div>
       {isModalOpen && (
         <div
-          className="z-100 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75"
+          className="z-999 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75"
           onClick={() => setIsModalOpen(false)}
         >
           <div className="max-w-4xl rounded-lg bg-gray-900 p-8">
