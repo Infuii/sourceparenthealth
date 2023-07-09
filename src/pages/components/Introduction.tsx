@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @next/next/no-img-element */
@@ -55,7 +56,7 @@ export default function Introduction() {
   const [ref5, inView5] = useInView({
     threshold: 0.1,
   });
-  const ebookRef = useRef(null);
+  const ebookRef = useRef<HTMLDivElement | null>(null);
   const title = "WELLNESS E-BOOK";
   const subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
@@ -230,9 +231,12 @@ export default function Introduction() {
             </h1>
             <form
               className="mt-8"
-              onSubmit={async (e) => {
+              onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
                 e.preventDefault();
-                const { email }: never = e.target.elements;
+                const target = e.target as typeof e.target & {
+                  email: { value: string };
+                };
+                const email = target.email.value;
 
                 try {
                   const response = await fetch("/api/newsletter", {
@@ -240,12 +244,12 @@ export default function Introduction() {
                     headers: {
                       "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ email: email.value as string }),
+                    body: JSON.stringify({ email: email }),
                   });
 
                   if (response.ok) {
                     alert("You have successfully signed up for the newsletter");
-                    e.target.reset();
+                    (e.target as HTMLFormElement).reset();
                   } else {
                     alert("Error signing up for the newsletter");
                   }
@@ -332,7 +336,7 @@ export default function Introduction() {
               </p>
               <button
                 onClick={() =>
-                  scroll.scrollTo(ebookRef?.current?.offsetTop as never, {
+                  scroll.scrollTo(ebookRef?.current?.offsetTop ?? 0, {
                     smooth: true,
                   })
                 }
@@ -593,7 +597,7 @@ export default function Introduction() {
           >
             {title.split("").map((char, index) => (
               <motion.span
-                key={char + "-" + index}
+                key={char + "-" + index.toString()}
                 initial="hidden"
                 animate={heroInView ? "visible" : "hidden"}
                 transition={{ delay: index * 0.25, duration: 5 }}

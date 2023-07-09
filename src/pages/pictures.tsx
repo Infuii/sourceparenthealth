@@ -9,7 +9,14 @@ import Footer from "./components/Footer";
 
 export default function Pictures() {
   const { data: sessionData } = useSession();
-  const pictures = [
+  interface Picture {
+    id: number;
+    name: string;
+    url: string;
+    category: string;
+  }
+
+  const pictures: Picture[] = [
     {
       id: 1,
       name: "Picture 1",
@@ -51,7 +58,7 @@ export default function Pictures() {
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<Picture | null>(null);
 
   const handleCategoryClick = (category: string) => {
     if (selectedCategories.includes(category)) {
@@ -68,7 +75,7 @@ export default function Pictures() {
     setSelectedCategories([]);
   };
   const openImage = (item: React.SetStateAction<null>) => {
-    setSelectedImage(item);
+    setSelectedImage(item as never);
     setIsModalOpen(true);
   };
 

@@ -9,13 +9,11 @@ import Footer from "./components/Footer";
 
 export default function Contact() {
   const { data: sessionData } = useSession();
-  const [activeQuestion, setActiveQuestion] = useState(null);
+  const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
   const [fadeIn, setFadeIn] = useState(false);
 
   const handleQuestionClick = (index: number) => {
-    setActiveQuestion((prevIndex: number | null) =>
-      prevIndex === index ? null : index
-    );
+    setActiveQuestion((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const FAQData = [
@@ -121,11 +119,16 @@ export default function Contact() {
               <h2 className="mb-2 text-xl font-medium">Contact Us</h2>
               <form
                 className="mt-8"
-                onSubmit={async (e) => {
+                onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
                   e.preventDefault();
 
-                  const { name, email, message } = e.target.elements;
+                  const target = e.target as typeof e.target & {
+                    name: { value: string };
+                    email: { value: string };
+                    message: { value: string };
+                  };
 
+                  const { name, email, message } = target;
                   try {
                     // Send a POST request to the API route with the form data
                     const response = await fetch("./api/contact", {
@@ -134,9 +137,9 @@ export default function Contact() {
                         "Content-Type": "application/json",
                       },
                       body: JSON.stringify({
-                        name: name.value as string,
-                        email: email.value as string,
-                        message: message.value as string,
+                        name: name.value,
+                        email: email.value,
+                        message: message.value,
                       }),
                     });
 
@@ -144,7 +147,7 @@ export default function Contact() {
                       // Email sent successfully
                       alert("Email sent successfully");
                       // Reset the form
-                      e.target.reset();
+                      (target as unknown as HTMLFormElement).reset();
                     } else {
                       // Error sending email
                       alert("Error sending email");
