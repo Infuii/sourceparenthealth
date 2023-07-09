@@ -1,10 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+
 type SocialInfoProps = {
   name: string;
   url: string;
   icon: string;
 };
-/* eslint-disable @next/next/no-img-element */
+
 const SocialInfo = ({ name, url, icon }: SocialInfoProps) => {
   return (
     <Link href={url}>
