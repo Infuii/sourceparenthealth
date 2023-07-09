@@ -13,7 +13,10 @@ interface TestimonialsProps {
   testimonials: Testimonial[];
 }
 
-const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
+const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
+  if (!testimonials || testimonials.length === 0) {
+    console.log("NO TESTIMMONIALS");
+  }
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isTestimonialsVisible, setIsTestimonialsVisible] = useState(false);
