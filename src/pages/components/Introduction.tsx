@@ -340,9 +340,9 @@ export default function Introduction() {
                     smooth: true,
                   })
                 }
-                className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-white"
+                className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-black"
               >
-                Learn More
+                Go to E-Book
               </button>
 
               <div className="mt-4 sm:flex sm:items-center sm:gap-2">
