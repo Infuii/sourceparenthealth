@@ -179,6 +179,7 @@ export default function Courses() {
       <br />
       <br />
       <Footer />
+      <Footer />
     </div>
   );
 }
