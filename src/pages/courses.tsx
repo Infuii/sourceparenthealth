@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Link from "next/link";
 import Footer from "./components/Footer";
+import Stripe from "stripe";
+import { loadStripe } from "@stripe/stripe-js";
 
 export default function Courses() {
   const { data: sessionData } = useSession();
@@ -23,9 +25,29 @@ export default function Courses() {
       void animation.start({ opacity: 0 });
     }
   }, [animation, inView]);
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  );
 
-  const handlePurchase = () => {
-    // TODO: Add Stripe integration
+  const handlePurchase = async (priceId: string) => {
+    // Call your backend to create the Checkout Session
+
+    const response = await fetch("./api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        priceId: priceId,
+      }),
+    });
+
+    const result = await response.json();
+    const { sessionId } = result;
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const stripe = await stripePromise;
+    stripe.redirectToCheckout({ sessionId });
   };
 
   const courses = [
@@ -42,6 +64,7 @@ export default function Courses() {
         "Advantage 4",
         "Advantage 5",
       ],
+      priceId: "price1",
       icon: <FaBrain className="text-4xl text-green-500" />,
     },
     {
@@ -51,6 +74,7 @@ export default function Courses() {
       yearlyPrice: "$999",
       advantages: ["Advantage 1", "Advantage 2", "Advantage 3"],
       disadvantages: ["Disadvantage 1", "Disadvantage 2"],
+      priceId: "price_1NVJ11Lg8nvmDPHiYx3Covxw",
       icon: <FaHeart className="text-4xl text-red-500" />,
     },
     {
@@ -66,6 +90,7 @@ export default function Courses() {
         "Advantage 4",
         "Advantage 5",
       ],
+      priceId: "price3",
       icon: <FaFeather className="text-4xl text-blue-500" />,
     },
   ];
@@ -168,7 +193,7 @@ export default function Courses() {
             <div>
               <button
                 className="w-full rounded bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:border-4 hover:border-transparent hover:bg-blue-700 hover:shadow-lg"
-                onClick={() => handlePurchase()}
+                onClick={() => void handlePurchase(course.priceId)}
               >
                 Buy this Plan
               </button>
