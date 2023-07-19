@@ -8,9 +8,14 @@ import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Link from "next/link";
 import Footer from "./components/Footer";
-import Stripe from "stripe";
 import { loadStripe } from "@stripe/stripe-js";
+const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
+if (!stripePublishableKey) {
+  throw new Error("Stripe Publishable Key is not set");
+}
+
+const stripePromise = loadStripe(stripePublishableKey);
 export default function Courses() {
   const { data: sessionData } = useSession();
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -25,9 +30,6 @@ export default function Courses() {
       void animation.start({ opacity: 0 });
     }
   }, [animation, inView]);
-  const stripePromise = loadStripe(
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  );
 
   const handlePurchase = async (priceId: string) => {
     // Call your backend to create the Checkout Session
@@ -42,12 +44,18 @@ export default function Courses() {
       }),
     });
 
-    const result = await response.json();
+    const result = (await response.json()) as { sessionId: string };
     const { sessionId } = result;
 
     // When the customer clicks on the button, redirect them to Checkout.
     const stripe = await stripePromise;
-    stripe.redirectToCheckout({ sessionId });
+    if (stripe !== null) {
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+
+      if (error) {
+        console.log(error);
+      }
+    }
   };
 
   const courses = [

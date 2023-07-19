@@ -1,10 +1,17 @@
 // pages/api/create-checkout-session.js
+import { type NextApiRequest, type NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
-export default async function handler(req, res) {
-  const { priceId } = req.body;
+if (!stripeSecretKey) {
+  throw new Error("Stripe Secret Key is not set");
+}
+
+const stripe = new Stripe(stripeSecretKey, { apiVersion: '2022-11-15' });
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const { priceId } = req.body as { priceId: string };
 
   // Create a Checkout Session.
   const session = await stripe.checkout.sessions.create({
@@ -16,8 +23,8 @@ export default async function handler(req, res) {
         quantity: 1,
       },
     ],
-    success_url: `${req.headers.origin}/scheduling`,
-    cancel_url: `${req.headers.origin}/courses`,
+    success_url: `${req.headers.origin as string}/scheduling`,
+    cancel_url: `${req.headers.origin as string}/courses`,
   });
 
   res.status(200).json({ sessionId: session.id });
