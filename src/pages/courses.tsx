@@ -104,7 +104,7 @@ export default function Courses() {
   ];
 
   return (
-    <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
+    <div className="main m-0 min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] p-0 pb-16">
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
 
       <Scroller />
@@ -140,7 +140,7 @@ export default function Courses() {
       </div>
       <motion.div
         ref={ref}
-        className="mt-8 flex justify-center gap-4"
+        className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-col sm:items-start sm:justify-start sm:gap-4 md:flex-row md:justify-center"
         animate={animation}
       >
         {courses.map((course, index) => (

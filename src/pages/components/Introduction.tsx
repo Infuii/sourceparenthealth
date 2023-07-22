@@ -5,12 +5,37 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaAddressBook, FaAngleUp, FaAward, FaGem } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
 import { BookOpen, Download } from "react-feather"; // SVG icons from Feather Icons
 
 export default function Introduction() {
+  const styles = {
+    divStyle: {
+      "@media (min-width: 768px)": {
+        position: "relative",
+        right: "30vh",
+      },
+    },
+  };
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  // Function to update window width
+  const updateWindowDimensions = () => {
+    const newWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+    setWindowWidth(newWidth);
+  };
+
+  // Use useEffect to update window width when the component mounts and when the window is resized
+  useEffect(() => {
+    updateWindowDimensions();
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", updateWindowDimensions);
+
+      return () => window.removeEventListener("resize", updateWindowDimensions);
+    }
+  }, []);
   const { ref: heroRef, inView: heroInView } = useInView({
     threshold: 0.1,
   });
@@ -483,8 +508,9 @@ export default function Introduction() {
       <div className="mt-10 flex items-center justify-center">
         <motion.div
           ref={ref2}
-          className="flex w-4/5 items-center gap-4"
-          variants={slideIn}
+          className="m-2 flex w-full flex-col items-center gap-4 md:w-4/5 md:flex-row lg:relative"
+          style={styles.divStyle}
+          variants={windowWidth <= 768 ? fadeIn : slideIn} // Use fadeIn for screens <= 768px and slideIn for larger screens
           initial="hidden"
           animate={inView2 ? "visible" : "hidden"}
           transition={{ duration: 0.8 }}
@@ -511,8 +537,9 @@ export default function Introduction() {
       <div className="mt-10 flex items-center justify-center">
         <motion.div
           ref={ref3}
-          className="flex w-4/5 items-center gap-4"
-          variants={slideIn}
+          className="m-2 flex w-full flex-col items-center gap-4 md:w-4/5 md:flex-row lg:relative"
+          style={styles.divStyle}
+          variants={windowWidth <= 768 ? fadeIn : slideIn} // Use fadeIn for screens <= 768px and slideIn for larger screens
           initial="hidden"
           animate={inView3 ? "visible" : "hidden"}
           transition={{ duration: 0.8 }}
@@ -539,8 +566,9 @@ export default function Introduction() {
       <div className="mt-10 flex items-center justify-center">
         <motion.div
           ref={ref4}
-          className="flex w-4/5 items-center gap-4"
-          variants={slideIn}
+          className="m-2 flex w-full flex-col items-center gap-4 md:w-4/5 md:flex-row lg:relative"
+          style={styles.divStyle}
+          variants={windowWidth <= 768 ? fadeIn : slideIn} // Use fadeIn for screens <= 768px and slideIn for larger screens
           initial="hidden"
           animate={inView4 ? "visible" : "hidden"}
           transition={{ duration: 0.8 }}
