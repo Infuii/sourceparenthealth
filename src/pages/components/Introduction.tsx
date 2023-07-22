@@ -509,7 +509,7 @@ export default function Introduction() {
         <motion.div
           ref={ref2}
           className="m-2 flex w-full flex-col items-center gap-4 md:w-4/5 md:flex-row lg:relative"
-          style={styles.divStyle}
+          style={styles.divStyle as never}
           variants={windowWidth <= 768 ? fadeIn : slideIn} // Use fadeIn for screens <= 768px and slideIn for larger screens
           initial="hidden"
           animate={inView2 ? "visible" : "hidden"}
@@ -538,7 +538,7 @@ export default function Introduction() {
         <motion.div
           ref={ref3}
           className="m-2 flex w-full flex-col items-center gap-4 md:w-4/5 md:flex-row lg:relative"
-          style={styles.divStyle}
+          style={styles.divStyle as never}
           variants={windowWidth <= 768 ? fadeIn : slideIn} // Use fadeIn for screens <= 768px and slideIn for larger screens
           initial="hidden"
           animate={inView3 ? "visible" : "hidden"}
@@ -567,7 +567,7 @@ export default function Introduction() {
         <motion.div
           ref={ref4}
           className="m-2 flex w-full flex-col items-center gap-4 md:w-4/5 md:flex-row lg:relative"
-          style={styles.divStyle}
+          style={styles.divStyle as never}
           variants={windowWidth <= 768 ? fadeIn : slideIn} // Use fadeIn for screens <= 768px and slideIn for larger screens
           initial="hidden"
           animate={inView4 ? "visible" : "hidden"}
