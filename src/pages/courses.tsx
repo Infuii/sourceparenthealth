@@ -30,6 +30,11 @@ export default function Courses() {
       void animation.start({ opacity: 0 });
     }
   }, [animation, inView]);
+  const [productPurchased, setProductPurchased] = useState(false);
+
+  const handleBuyNowClick = () => {
+    setProductPurchased(true);
+  };
 
   const handlePurchase = async (priceId: string) => {
     // Call your backend to create the Checkout Session

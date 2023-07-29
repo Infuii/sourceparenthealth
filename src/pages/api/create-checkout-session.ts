@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         quantity: 1,
       },
     ],
-    success_url: `${req.headers.origin as string}/scheduling`,
+    success_url: `https://calendly.com/sourceparenthealth`,
     cancel_url: `${req.headers.origin as string}/courses`,
   });
 
