@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import { signOut, signIn } from "next-auth/react";
@@ -26,7 +27,16 @@ export default function Navbar({ sessionData }: NavbarProps) {
         isNavbarVisible ? "opacity-100" : "opacity-0"
       } transition-opacity duration-700`}
     >
-      <h1 className="font-cursive font-sans text-xl font-thin sm:text-2xl">
+      <h1 className="font-cursive flex flex-row gap-2 font-sans text-xl font-thin sm:text-2xl">
+        <Link href="/">
+          <img
+            src="/sphlogop.png"
+            alt="logo"
+            height="40px"
+            width="40px"
+            className="relative bottom-2"
+          />
+        </Link>
         <Link href="/">SourceParentHealth</Link>
       </h1>
       <div className="sm:hidden">
@@ -59,7 +69,6 @@ export default function Navbar({ sessionData }: NavbarProps) {
           <Link href="/courses">Courses</Link>
           <Link href="/pictures">Pictures</Link>
         </div>
-        
       </div>
       <div className="hidden sm:flex sm:items-center">
         {sessionData ? (

@@ -7,6 +7,7 @@ import Scroller from "./components/Scroller";
 import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Link from "next/link";
+import MembershipPlans from "./components/MembershipPlans";
 import Footer from "./components/Footer";
 import { loadStripe } from "@stripe/stripe-js";
 const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
@@ -214,6 +215,9 @@ export default function Courses() {
           </motion.div>
         ))}
       </motion.div>
+      <br />
+      <br />
+      <MembershipPlans />
       <br />
       <br />
       <Footer />

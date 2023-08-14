@@ -82,8 +82,9 @@ export default function Introduction() {
     threshold: 0.1,
   });
   const ebookRef = useRef<HTMLDivElement | null>(null);
-  const title = "WELLNESS E-BOOK";
-  const subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+  const title = "The Prepared TeenAdult";
+  const subtitle =
+    "Share with your children and students but also reflect on the prompts for yourself. “we must not prepare the road for the child but prepare the child for the road”. So, if you have to be the one leading this preparation, would’nt you have to be at the top of your game too?  ";
 
   const ebookCoverSrc = "https://picsum.photos/200/300";
   const backgroundCoverSrc =
@@ -100,8 +101,7 @@ export default function Introduction() {
             width: "200vh",
             backgroundBlendMode: "multiply",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
-            backgroundImage:
-              "url('https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260')",
+            backgroundImage: "url('/IMG_5555.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -125,8 +125,8 @@ export default function Introduction() {
             transition={{ duration: 1.1, delay: 0.5 }}
             animate={inView5 ? "visible" : "hidden"}
           >
-            A new and upcoming business that is dedicated to making YOUR life
-            more special
+            A journey to be the parent you are meant to be by connecting to your
+            Source
           </motion.h5>
           <motion.p
             ref={ref5}
@@ -137,7 +137,8 @@ export default function Introduction() {
             transition={{ duration: 1.2, delay: 0.8 }}
             animate={inView5 ? "visible" : "hidden"}
           >
-            Build, grow, and develop your wellness lifestyle to suit your needs.
+            With a Health Coach, you too can win at the Olympics of TIME =
+            Thoughts that Influence Money + Energy{" "}
           </motion.p>
           <motion.div
             className="flex flex-col gap-4 sm:flex-row"
@@ -349,15 +350,19 @@ export default function Introduction() {
 
               <h3 className="mt-4 text-lg font-medium sm:text-xl">
                 <a href="" className="hover:underline">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit
+                  Download your Free eBook: The Prepared TeenAdult
                 </a>
               </h3>
 
               <p className="mt-1 text-sm text-gray-700">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam
-                nulla amet voluptatum sit rerum, atque, quo culpa ut
-                necessitatibus eius suscipit eum accusamus, aperiam voluptas
-                exercitationem facere aliquid fuga. Sint.
+                Prompts to guide you and your child towards the progress they
+                wish to make to get back to your/their energy and influence in
+                the world. Share with your children and students but also
+                reflect on the prompts for yourself. “we must not prepare the
+                road for the child but prepare the child for the road”. So, if
+                you have to be the one leading this preparation, would’nt you
+                have to be at the top of your game too? Benefits: Free
+                newsletter. Free eBook. Free health planning call
               </p>
               <button
                 onClick={() =>

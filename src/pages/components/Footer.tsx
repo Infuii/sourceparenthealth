@@ -22,9 +22,11 @@ const Footer = () => {
 
   return (
     <div style={{ position: "relative", top: "10vh" }}>
-      <h1 className="bg-[#1F2937] py-8 text-center font-serif text-4xl text-white">
-        Source Parent Health
-      </h1>
+      <div className="flex items-center justify-center bg-[#1F2937] py-8 text-center font-serif text-4xl text-white">
+        <img src="/sphlogop.png" alt="logo" height="40px" width="40px" />
+        <p>Source Parent Health</p>
+      </div>
+
       <footer className="grid grid-cols-2 gap-6 bg-gray-800 px-6 py-10 text-white sm:grid-cols-4">
         {/* Source Parent Health section */}
         <div className="col-span-2 sm:col-span-1">

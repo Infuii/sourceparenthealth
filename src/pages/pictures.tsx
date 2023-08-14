@@ -107,15 +107,15 @@ export default function Pictures() {
               {item}
             </button>
           ))}
-          {selectedCategories.length > 0 && (
-            <button
-              className="rounded-lg border border-black bg-transparent px-4 py-2 text-black"
-              onClick={clearFilters}
-            >
-              Clear Filters
-            </button>
-          )}
         </div>
+        {selectedCategories.length > 0 && (
+          <button
+            className="rounded-lg border border-black bg-transparent px-4 py-2 text-black"
+            onClick={clearFilters}
+          >
+            Clear Filters
+          </button>
+        )}
       </div>
       <br />
       <div className="flex flex-wrap justify-center gap-4">
