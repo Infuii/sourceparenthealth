@@ -14,9 +14,6 @@ interface TestimonialsProps {
 }
 
 const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
-  if (!testimonials || testimonials.length === 0) {
-    console.log("NO TESTIMMONIALS");
-  }
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isTestimonialsVisible, setIsTestimonialsVisible] = useState(false);
@@ -41,7 +38,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(goForward, 5000);
+    const timer = setTimeout(goForward, 7500);
     return () => clearTimeout(timer);
   }, [currentTestimonial]);
   useEffect(() => {
@@ -50,7 +47,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
   useEffect(() => {
     setIsLoaded(false);
     const fadeInTimer = setTimeout(() => setIsLoaded(true), 500);
-    const fadeOutTimer = setTimeout(() => setIsLoaded(false), 4500);
+    const fadeOutTimer = setTimeout(() => setIsLoaded(false), 7000);
     return () => {
       clearTimeout(fadeInTimer);
       clearTimeout(fadeOutTimer);
@@ -106,8 +103,8 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
             <p className="mb-4 text-gray-600">
               {testimonials[currentTestimonial]?.title}
             </p>
-            <blockquote className="font-cursive text-center font-sans text-3xl font-light leading-relaxed">
-              <p className="inline -rotate-3 transform text-9xl  text-gray-500">
+            <blockquote className="font-cursive max-h-[300px] overflow-y-auto text-center font-sans text-3xl font-light leading-relaxed">
+              <p className="inline -rotate-3 transform text-9xl text-gray-500">
                 &ldquo;
               </p>
               <span>{testimonials[currentTestimonial]?.body}</span>

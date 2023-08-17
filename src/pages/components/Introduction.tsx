@@ -95,10 +95,10 @@ export default function Introduction() {
       <div className="z-1 relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className=" z-1 justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-10 shadow-lg sm:w-2/3 sm:px-20 md:w-1/2"
+          className="z-1 justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-10 shadow-lg sm:w-2/3 sm:px-20 md:w-1/2"
           style={{
             height: "100vh",
-            width: "200vh",
+            width: "220vh",
             backgroundBlendMode: "multiply",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             backgroundImage: "url('/IMG_5555.jpg')",
@@ -163,7 +163,7 @@ export default function Introduction() {
           </motion.div>
           <motion.div
             ref={ref4}
-            className="mt-16 flex w-4/5 justify-center gap-12 sm:w-3/4 md:w-2/3 "
+            className="hidden justify-center gap-12 sm:w-2/3 md:flex md:w-1/2 lg:mt-16 lg:w-4/5"
             style={{ position: "relative", top: "10vh" }}
             variants={combination}
             transition={{ duration: 1.0 }}
@@ -182,7 +182,7 @@ export default function Introduction() {
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Connect with Experts
+                Become the Driver of your life
               </motion.h2>
               <motion.p
                 className="relative top-5 tracking-wide text-gray-300"
@@ -190,7 +190,7 @@ export default function Introduction() {
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Gain access to a network of experienced professionals.
+                Learn how to control the every day
               </motion.p>
             </motion.div>
             <motion.div
@@ -205,7 +205,7 @@ export default function Introduction() {
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Achieve Your Goals
+                Create What Matters Most
               </motion.h2>
               <motion.p
                 className="relative top-5 tracking-wide text-gray-300"
@@ -228,7 +228,7 @@ export default function Introduction() {
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Experience Luxury
+                Experience Abundance & Energy
               </motion.h2>
               <motion.p
                 className="relative top-5 tracking-wide text-gray-300"
@@ -236,7 +236,7 @@ export default function Introduction() {
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Indulge in our premium services and amenities.
+                Indulge in what we have to offer
               </motion.p>
             </motion.div>
           </motion.div>
@@ -653,7 +653,8 @@ export default function Introduction() {
             {subtitle}
           </motion.p>
           <motion.a
-            href="https://www.google.com"
+            href="/ebook.pdf"
+            download
             className="z-10 flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold tracking-wide text-black transition-colors duration-200 hover:border-black hover:bg-purple-300"
             whileHover={{ scale: 1.1 }}
           >

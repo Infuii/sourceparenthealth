@@ -48,13 +48,31 @@ export default function About() {
               transition={{ duration: 0.5 }}
             >
               <div className="w-full md:w-1/2">
-                <h2 className="mb-4 text-2xl font-semibold">Introduction</h2>
+                <h2 className="mb-4 text-2xl font-semibold">
+                  What is Source Parent Health?
+                </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer rutrum, metus quis eleifend sollicitudin, lacus elit
-                  faucibus tortor, sed molestie enim arcu et nibh. Curabitur
-                  fermentum felis id ultrices cursus. Curabitur sodales felis
-                  sed tortor aliquet, sed vulputate elit condimentum.
+                  Why should a parent or teacher prioritize their health?
+                  Because you have to lead the children to be prepared for the
+                  future. Would you like to be led by an instructor who is
+                  tired, suffering with chronic health issues, unmotivated,
+                  running low on abundance of time and money? No, right? When
+                  you are the pilot of a long haul flight, you’d better be
+                  equipped with lots of energy, be active, intuitive, have the
+                  resources and knowledge to resolve minor ailments quickly
+                  without having to spend hours at the clinic and hospital to
+                  get half baked solutions of medications that generally lead to
+                  more side effects and simply mask the symptoms. Additionally,
+                  medications have never resolved the disease. Every diabetic on
+                  medication is just that- continuing on medication. They suffer
+                  from kidney issues, weight issues, have to be restricted in
+                  what they eat, end up with depression and heart disease and
+                  generally are taking medication for not just diabetes but for
+                  many other ailments. Source Parent Health is a coaching
+                  program that gets you back in the driver’s seat and equips you
+                  for freedom from medications. We get to the Source of your
+                  energy and motivation and give you back your TIME, sleep and
+                  intellect.
                 </p>
               </div>
               <div className="w-full md:w-1/2">

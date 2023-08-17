@@ -10,46 +10,31 @@ import Footer from "./components/Footer";
 
 const testimonialList = [
   {
-    name: "John Doe",
-    title: "CEO",
-    body: "Since I started using this solution, my overall wellness has significantly improved. I have noticed a remarkable difference in my sleeping patterns and energy levels. It's truly one of the best solutions out there.",
+    name: "Khalid Parvez",
+    title: "Engineer, United States",
+    body: "It's been a pleasure working with Sarah for the last 4 months in the Source Parent Health coaching program. I am looking forward to accomplishing more health goals going forward. With Sarah’s health coaching, I was able to lower my A1c from diabetic range to a healthy 5.6 in 3 months while enjoying my favorite foods when I wanted to. Sarah has a very intuitive method of coaching that gave me the tools to take lead on my weight, energy, sleep, and eating patterns.I would highly encourage anyone with diabetes and weight issues to enroll in Source Parent Health coaching program and see the amazing results for themselves in an enjoyable manner.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-rkxZKhNIZzymDzz2X3FQgqtuFYL1vNovJvxfCNvCg&s",
   },
   {
-    name: "Jane Doe",
-    title: "COO",
-    body: "After trying out various alternatives, I can confidently say that this is the one that stands out. It has positively impacted my well-being, helping me achieve better sleep quality and a more balanced lifestyle. It's an excellent choice for anyone seeking wellness improvement.",
+    name: "Arthur Walowski",
+    title: "Business Owner, Canada",
+    body: "I think the thing that stood out to me the most was how you were able to help me see food in a different way and how I wasn’t really thinking about what I was putting in my body. Once you helped me realize what I was doing wrong it definitely made it easier to comprehend.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-rkxZKhNIZzymDzz2X3FQgqtuFYL1vNovJvxfCNvCg&s",
   },
   {
-    name: "John Smith",
-    title: "CTO",
-    body: "Having explored multiple options, I can say without a doubt that this is one of the best choices available. Its holistic approach to wellness has enhanced my sleep patterns, increased my productivity, and improved my overall quality of life. I highly recommend it to anyone looking for an effective solution.",
+    name: "Aparna Sharma",
+    title: "Senior HR Executive, India",
+    body: "I have known Sarah as an astute professional fo rover a decade now, and a benevolent fellow human being. Committed, sharp, and extremely thorough with her work coupled with risk-taking ability which has alway smade her stand out from her other team members. She has demonstrated learning agility in a rgeat variety of tasks that she has undertaken. Sarah is an absolute asset for any organization, client, and a great friend too!",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-rkxZKhNIZzymDzz2X3FQgqtuFYL1vNovJvxfCNvCg&s",
   },
   {
-    name: "Sarah Johnson",
-    title: "Marketing Manager",
-    body: "As someone who struggled with sleep issues for years, this solution has been a game-changer. I wake up feeling refreshed and rejuvenated, ready to take on the day. It has improved not only my sleep but also my overall mood and well-being.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-rkxZKhNIZzymDzz2X3FQgqtuFYL1vNovJvxfCNvCg&s",
-  },
-  {
-    name: "Michael Thompson",
-    title: "Freelancer",
-    body: "I've tried many different approaches to improve my sleep, but none have been as effective as this solution. It has helped regulate my sleep schedule and provided me with a sense of calmness and relaxation. I can't recommend it enough!",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-rkxZKhNIZzymDzz2X3FQgqtuFYL1vNovJvxfCNvCg&s",
-  },
-  {
-    name: "Emily Wilson",
-    title: "Student",
-    body: "Since incorporating this solution into my daily routine, my focus and concentration have significantly improved. I can now study for longer periods without feeling fatigued. It's been a game-changer for my academic performance.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-rkxZKhNIZzymDzz2X3FQgqtuFYL1vNovJvxfCNvCg&s",
+    name: "Farzeen Rizvi",
+    title: "Professional Engineer, Canada",
+    body: "Sarah’s workshop has “re-calibrated” my perception on personal health and well-being; our most cherished gift.  Sarah’s in-depth knowledge on the subject, and motivation, is apparent in her delivery. Her approach on nutrition, emotional  and spiritual health has allowed me to examine my life in a holistic manner, and enhance it. Weight loss and increased energy are just a few of the many benefits I have reaped from this workshop, . I feel privileged to have had the opportunity to engage with such a wonderful group of women. This series should become a permanent program offered to all families.",
+    image: "",
   },
 ];
 

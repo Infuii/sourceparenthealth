@@ -104,7 +104,7 @@ export default function Courses() {
         "Advantage 4",
         "Advantage 5",
       ],
-      priceId: "price3",
+      priceId: "price_1Nfm83Lg8nvmDPHiMWyGeUae",
       icon: <FaFeather className="text-4xl text-blue-500" />,
     },
   ];

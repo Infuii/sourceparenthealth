@@ -38,46 +38,54 @@ const MembershipPlans: React.FC = () => {
       {membershipPlans.map((plan, index) => (
         <motion.div
           key={plan.title}
-          onClick={() => toggleExpand(index)}
-          className={`relative flex h-[70px] w-[400px] transform flex-col justify-between overflow-hidden rounded-lg border border-t-4 border-black border-green-400 bg-gray-100 p-5 text-center shadow shadow-xl transition-all duration-500 ease-in-out hover:bg-gray-200`}
-          initial={{ opacity: 0, height: "70px", width: "400px" }}
-          animate={{
-            opacity: 1,
-            height: expandedIndex === index ? "400px" : "70px",
-            width: expandedIndex === index ? "405px" : "400px",
-          }}
+          className={`relative w-[600px] transform flex-col justify-between overflow-hidden rounded-lg border border-t-4 border-black border-green-400 bg-gray-100 p-5 text-center shadow shadow-xl transition-all duration-500 ease-in-out hover:bg-gray-200`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: index * 0.5, duration: 1 }}
         >
-          <h1 className="text-xl font-semibold">{plan.title}</h1>
+          <h1 className="mb-2 text-2xl font-bold">
+            Monthly Membership Subscription
+          </h1>
+          <p className="mb-2 text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <button
+            onClick={() => toggleExpand(index)}
+            className="mb-4 rounded bg-blue-500 px-4 py-2 text-white"
+          >
+            Learn More
+          </button>
+
           <motion.div
-            className="flex flex-col space-y-4"
+            initial={{ height: "0px", opacity: 0 }}
             animate={{
+              height: expandedIndex === index ? "auto" : "0px",
               opacity: expandedIndex === index ? 1 : 0,
-              maxHeight: expandedIndex === index ? "400px" : "300px",
             }}
             transition={{ duration: 1 }}
+            className="overflow-hidden"
           >
-            <div>
-              <h3 className="text-lg font-semibold">Outcome:</h3>
-              <p className="text-sm">{plan.outcome}</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold">Benefits:</h3>
-              <p className="text-sm">
-                {plan.benefits}; annual {plan.annualPrice}, Monthly (
-                {plan.monthlyPrice})
-              </p>
-            </div>
-            <div className="flex justify-between">
-              <button className="rounded bg-blue-500 px-4 py-2 text-white">
-                Learn more
-              </button>
-              <button className="rounded bg-green-500 px-4 py-2 text-white">
-                Book a session
-              </button>
-              <button className="rounded bg-red-500 px-4 py-2 text-white">
-                Buy
-              </button>
+            <div className="flex flex-col space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold">Outcome:</h3>
+                <p className="text-sm">{plan.outcome}</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Benefits:</h3>
+                <p className="text-sm">
+                  {plan.benefits}; annual {plan.annualPrice}, Monthly (
+                  {plan.monthlyPrice})
+                </p>
+              </div>
+              <div className="flex justify-between">
+                <button className="rounded bg-green-500 px-4 py-2 text-white">
+                  Book a session
+                </button>
+                <button className="rounded bg-red-500 px-4 py-2 text-white">
+                  Buy
+                </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>
