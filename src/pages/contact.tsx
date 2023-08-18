@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Scroller from "./components/Scroller";
@@ -11,6 +12,9 @@ export default function Contact() {
   const { data: sessionData } = useSession();
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
   const [fadeIn, setFadeIn] = useState(false);
+
+  const router = useRouter();
+  const selectedService = router.query.service;
 
   const handleQuestionClick = (index: number) => {
     setActiveQuestion((prevIndex) => (prevIndex === index ? null : index));
@@ -179,6 +183,7 @@ export default function Contact() {
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <div className="w-full">
                     <input
+                      required
                       type="text"
                       name="name" // Add name attribute
                       placeholder="Name"
@@ -187,6 +192,7 @@ export default function Contact() {
                   </div>
                   <div className="w-full">
                     <input
+                      required
                       type="email"
                       name="email" // Add name attribute
                       placeholder="Email"
@@ -196,6 +202,7 @@ export default function Contact() {
                 </div>
                 <div className="mt-4">
                   <textarea
+                    required
                     name="message" // Add name attribute
                     placeholder="Message"
                     className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
@@ -204,6 +211,9 @@ export default function Contact() {
                 </div>
                 <div className="mt-4">
                   <select
+                    placeholder="Subject"
+                    value={selectedService ?? "Subject"}
+                    required
                     name="subject"
                     className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
                   >
@@ -213,6 +223,7 @@ export default function Contact() {
                     </option>
                     <option value="Build Abundance">Build Abundance</option>
                     <option value="Group Coaching">Group Coaching</option>
+                    <option value="Subject">General</option>
                   </select>
                 </div>
 

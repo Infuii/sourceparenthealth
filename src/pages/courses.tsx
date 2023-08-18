@@ -219,6 +219,46 @@ export default function Courses() {
       <br />
       <MembershipPlans />
       <br />
+
+      <div className="mt-8 flex flex-col items-center justify-center space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-700">
+          Contact for our Other Services
+        </h2>
+        <div className="flex space-x-6">
+          <Link
+            href="/contact?service=Health Planning"
+            className="text-blue-600 transition duration-300 hover:text-blue-800 hover:underline"
+          >
+            Health Planning
+          </Link>
+          <Link
+            href="/contact?service=Build a nourished Kitchen"
+            className="text-blue-600 transition duration-300 hover:text-blue-800 hover:underline"
+          >
+            Build a nourished Kitchen
+          </Link>
+          <Link
+            href="/contact?service=Build Abundance"
+            className="text-blue-600 transition duration-300 hover:text-blue-800 hover:underline"
+          >
+            Build Abundance
+          </Link>
+          <Link
+            href="/contact?service=Group Coaching"
+            className="text-blue-600 transition duration-300 hover:text-blue-800 hover:underline"
+          >
+            Group Coaching
+          </Link>
+        </div>
+        <Link
+          href="/contact"
+          className="text-gray-600 transition duration-300 hover:text-gray-800 hover:underline"
+        >
+          See FAQ section to learn More about each of these programs
+        </Link>
+      </div>
+
+      <br />
       <br />
       <Footer />
     </div>
