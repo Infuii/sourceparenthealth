@@ -1,31 +1,50 @@
 import nodemailer from "nodemailer";
 import smtpTransport from "nodemailer-smtp-transport";
 
-export default async function handler(req: { method: string; body: { name: unknown; email: never; message: unknown; }; }, res: { status: (arg0: number) => { (): unknown; new(): unknown; json: { (arg0: { message: string; }): void; new(): unknown; }; }; }) {
+export default async function handler(
+  req: {
+    method: string;
+    body: {
+      name: unknown;
+      email: never;
+      message: unknown;
+      subject: unknown;  // Add this line
+    };
+  },
+  res: {
+    status: (arg0: number) => {
+      (): unknown;
+      new(): unknown;
+      json: { (arg0: { message: string; }): void; new(): unknown; };
+    };
+  }
+) {
   if (req.method === "POST") {
-    const { name, email, message } = req.body;
+    const { name, email, message, subject } = req.body;  // Add subject here
 
     // Create a transporter object for sending emails
     const transporter = nodemailer?.createTransport(
       smtpTransport({
-        service: "Gmail", // Replace with your email provider (e.g., "Gmail", "Outlook")
+        service: "Gmail", 
         auth: {
-          user: "sourceparenthealthlife@gmail.com", // Replace with your email address
-          pass: "nnguyzolaswitiid", // Replace with your email password or app password
+          user: "sourceparenthealthlife@gmail.com", 
+          pass: "nnguyzolaswitiid", 
         },
       })
     );
-      const mailList = [
-        "sourceparenthealthlife@gmail.com",
-        email,
-      ]
+
+    const mailList = [
+      "sourceparenthealthlife@gmail.com",
+      email,
+    ];
+
     try {
       // Send the email
       await transporter.sendMail({
         from: email,
         to: mailList,
-        subject: "Your email to Source Parent Health Life Support has been received!",
-        text: `Name: ${name as string}\nEmail: ${email as string}\nMessage: ${message as string}`,
+        subject: `Received: ${subject as string}`,  // Use the provided subject as email's subject or integrate it as required
+        text: `Name: ${name as string}\nEmail: ${email as string}\nSubject: ${subject as string}\nMessage: ${message as string}`,  // Add subject to the email content
       });
 
       // Email sent successfully

@@ -142,9 +142,10 @@ export default function Contact() {
                     name: { value: string };
                     email: { value: string };
                     message: { value: string };
+                    subject: { value: string };
                   };
 
-                  const { name, email, message } = target;
+                  const { name, email, message, subject } = target;
                   try {
                     // Send a POST request to the API route with the form data
                     const response = await fetch("./api/contact", {
@@ -156,6 +157,7 @@ export default function Contact() {
                         name: name.value,
                         email: email.value,
                         message: message.value,
+                        subject: subject.value,
                       }),
                     });
 
@@ -200,6 +202,20 @@ export default function Contact() {
                     rows={4}
                   ></textarea>
                 </div>
+                <div className="mt-4">
+                  <select
+                    name="subject"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
+                  >
+                    <option value="Health planning">Health planning</option>
+                    <option value="Build a nourished Kitchen">
+                      Build a nourished Kitchen
+                    </option>
+                    <option value="Build Abundance">Build Abundance</option>
+                    <option value="Group Coaching">Group Coaching</option>
+                  </select>
+                </div>
+
                 <div className="mt-4">
                   <button className="w-full rounded-lg bg-indigo-500 px-4 py-2 text-white">
                     Submit
