@@ -14,8 +14,19 @@ export default function Contact() {
   const [fadeIn, setFadeIn] = useState(false);
 
   const router = useRouter();
-  const selectedService = router.query.service;
+  const [selectedService, setSelectedService] = useState<string>("GENERAL");
 
+  useEffect(() => {
+    // This useEffect will run every time the route changes.
+    // Check if the `service` query parameter is defined.
+    if (router.query.service) {
+      setSelectedService(router.query.service as string);
+    }
+  }, [router.query]);
+
+  const handleChange = (event) => {
+    setSelectedService(event.target.value);
+  };
   const handleQuestionClick = (index: number) => {
     setActiveQuestion((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -211,19 +222,17 @@ export default function Contact() {
                 </div>
                 <div className="mt-4">
                   <select
-                    placeholder="Subject"
-                    value={selectedService ?? "Subject"}
-                    required
-                    name="subject"
                     className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
+                    value={selectedService}
+                    onChange={handleChange}
                   >
-                    <option value="Health planning">Health planning</option>
+                    <option value="GENERAL">General</option>
+                    <option value="Health Planning">Health Planning</option>
                     <option value="Build a nourished Kitchen">
                       Build a nourished Kitchen
                     </option>
                     <option value="Build Abundance">Build Abundance</option>
                     <option value="Group Coaching">Group Coaching</option>
-                    <option value="Subject">General</option>
                   </select>
                 </div>
 
