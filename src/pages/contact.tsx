@@ -24,7 +24,7 @@ export default function Contact() {
     }
   }, [router.query]);
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedService(event.target.value);
   };
   const handleQuestionClick = (index: number) => {
@@ -222,9 +222,10 @@ export default function Contact() {
                 </div>
                 <div className="mt-4">
                   <select
+                    name="subject"
                     className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
                     value={selectedService}
-                    onChange={handleChange}
+                    onChange={handleChange as never}
                   >
                     <option value="GENERAL">General</option>
                     <option value="Health Planning">Health Planning</option>
