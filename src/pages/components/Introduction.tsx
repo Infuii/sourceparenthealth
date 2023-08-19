@@ -95,10 +95,9 @@ export default function Introduction() {
       <div className="z-1 relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className="z-1 justify-top relative top-10 flex w-4/5 flex-col items-center gap-4 rounded-lg bg-pink-100 px-10 shadow-lg sm:w-2/3 sm:px-20 md:w-1/2"
+          className="z-1 justify-top relative top-10 flex h-[150vh] w-4/5 flex-col items-center rounded-lg bg-pink-100 px-10 shadow-lg lg:w-1/2 lg:w-[100vh] lg:gap-10"
           style={{
-            height: "100vh",
-            width: "220vh",
+            width: "100%",
             backgroundBlendMode: "multiply",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             backgroundImage: "url('/IMG_5555.jpg')",
@@ -163,8 +162,8 @@ export default function Introduction() {
           </motion.div>
           <motion.div
             ref={ref4}
-            className="hidden justify-center gap-12 sm:w-2/3 md:flex md:w-1/2 lg:mt-16 lg:w-4/5"
-            style={{ position: "relative", top: "10vh" }}
+            className="hidden justify-center gap-12 pb-6 sm:w-2/3 md:mt-12 md:flex md:w-1/2 lg:mt-16 lg:w-4/5"
+            style={{ position: "relative", top: "-2.5vh" }}
             variants={combination}
             transition={{ duration: 1.0 }}
             initial="hidden"
@@ -240,68 +239,76 @@ export default function Introduction() {
               </motion.p>
             </motion.div>
           </motion.div>
-        </motion.div>
-        {/* contact info */}
-        <motion.div
-          ref={ref5}
-          className="absolute flex flex w-2/5 items-center justify-center"
-          transition={{ duration: 1.5, delay: 0.75 }}
-          initial="hidden"
-          animate={inView5 ? "visible" : "hidden"}
-          variants={fadeIn}
-          style={{ top: "65vh" }}
-        >
-          <div className="w-2/3" style={{ position: "relative", top: "10vh" }}>
-            <h1 className="text-center text-3xl text-gray-300">
-              Sign up to our Newsletter
-            </h1>
-            <form
-              className="mt-8"
-              onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
-                e.preventDefault();
-                const target = e.target as typeof e.target & {
-                  email: { value: string };
-                };
-                const email = target.email.value;
-
-                try {
-                  const response = await fetch("/api/newsletter", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ email: email }),
-                  });
-
-                  if (response.ok) {
-                    alert("You have successfully signed up for the newsletter");
-                    (e.target as HTMLFormElement).reset();
-                  } else {
-                    alert("Error signing up for the newsletter");
-                  }
-                } catch (error) {
-                  console.error("Error:", error);
-                  alert("Error signing up for the newsletter");
-                }
+          <motion.div
+            ref={ref5}
+            className="absolute flex flex w-2/5 items-center justify-center"
+            transition={{ duration: 1.5, delay: 0.75 }}
+            initial="hidden"
+            animate={inView5 ? "visible" : "hidden"}
+            variants={fadeIn}
+            style={{ top: "65vh" }}
+          >
+            <div
+              className="relative w-2/3"
+              style={{
+                position: "relative",
+                top: window.innerWidth <= 1280 ? "30vh" : "10vh",
               }}
             >
-              <div className="w-full">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  required
-                />
-              </div>
-              <div className="mt-4">
-                <button className="w-full rounded-lg bg-indigo-500 px-4 py-2 text-white">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
+              <h1 className="text-center text-3xl text-gray-300">
+                Sign up to our Newsletter
+              </h1>
+              <form
+                className="mt-8"
+                onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+                  e.preventDefault();
+                  const target = e.target as typeof e.target & {
+                    email: { value: string };
+                  };
+                  const email = target.email.value;
+
+                  try {
+                    const response = await fetch("/api/newsletter", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({ email: email }),
+                    });
+
+                    if (response.ok) {
+                      alert(
+                        "You have successfully signed up for the newsletter"
+                      );
+                      (e.target as HTMLFormElement).reset();
+                    } else {
+                      alert("Error signing up for the newsletter");
+                    }
+                  } catch (error) {
+                    console.error("Error:", error);
+                    alert("Error signing up for the newsletter");
+                  }
+                }}
+              >
+                <div className="w-full">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
+                    required
+                  />
+                </div>
+                <div className="mt-4">
+                  <button className="w-full rounded-lg bg-indigo-500 px-4 py-2 text-white">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </motion.div>
         </motion.div>
+        {/* contact info */}
       </div>
 
       <br />
@@ -619,7 +626,7 @@ export default function Introduction() {
             ref={imgRef}
             src={ebookCoverSrc} // maybe change to https://fastly.picsum.photos/id/377/200/300.jpg?hmac=veEWg3ApI7rkKqMF6MuaWBmxPgnEe-Ar9eDdMG3q-kk or https://fastly.picsum.photos/id/959/200/300.jpg?hmac=q2WZ7w-aqWQyUVa4vEv-28yCS6TLS-M19or3y7YVvso
             alt="E-Book Cover"
-            className="z-10 mb-8 w-2/5 rounded object-cover sm:w-1/4 md:w-1/5"
+            className="z-10 mb-8 w-2/5 rounded object-cover sm:w-1/4 md:w-1/6"
             initial={{ opacity: 0 }}
             animate={{ opacity: imgInView ? 1 : 0 }}
             transition={{ duration: 1 }}
