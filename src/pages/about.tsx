@@ -154,14 +154,47 @@ export default function About() {
             >
               <div className="w-full md:w-1/2">
                 <h2 className="mb-4 text-2xl font-semibold">
-                  What We Want For You
+                  Sarah&apos;s Journey With Diabetes
                 </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer rutrum, metus quis eleifend sollicitudin, lacus elit
-                  faucibus tortor, sed molestie enim arcu et nibh. Curabitur
-                  fermentum felis id ultrices cursus. Curabitur sodales felis
-                  sed tortor aliquet, sed vulputate elit condimentum.
+                  I welcome you to my personal journey blog with ending diabetes
+                  but more importantly, my journey of how I managed to clear the
+                  army fitness test, lifting 20kg sandbags, having more energy
+                  everyday, fasting for over 12 hours for a month and generally
+                  living a happier life once I got diagnosed with diabetes and
+                  that too without medications even though the doctor kept
+                  pushing it on me. In fact, it takes 10 years to develop
+                  diabetes and I have lived those years in ignorance even though
+                  my body told me that something was wrong, but my medical tests
+                  were not enough for doctors to give me a diagnosis so I was at
+                  best given pain relief medications. As a doctorate in
+                  biochemistry (and being a scientist with Monsanto way back in
+                  1999, I am privy to the research process and my concern is
+                  that either research does not make its way to the doctor’s
+                  prescription pad or it comes in the form of a pill with a lot
+                  of marketing dollars and selfish incentives that really do
+                  more harm than good and definitely modern medicine has not
+                  helped cure anyone of chronic diseases. As a health coach and
+                  a learner of herbal remedies, I am now knowledgeable of the
+                  processes that cause chronic diseases and what can really help
+                  heal completely without any sophisticated lab equipment and
+                  chemicals. I have worked with different parts of the Canadian
+                  health system – research, education, acute care hospitals,
+                  community health centres and the federal government. These
+                  projects provided me with a very broad yet deep understanding
+                  of the dynamic nature of how disease prevention, disease
+                  management and research could either support or undermine an
+                  individual’s health. Why am I doing this? There comes a time
+                  in one’s life when we are called to share what we have learnt
+                  and that itself is healing to the soul. I am being called to
+                  educate, coach and empower parents on their unique abilities
+                  and handicaps (or HandyCaps), so that they can take control of
+                  their disease naturally and end the use of or significantly
+                  reduce their dependence on medications. So, once again, THANK
+                  YOU for stopping by here. I would encourage you to download
+                  the free ebook on The Prepared TeenAdult that is a fun way to
+                  open up our perspective as parents beyond our duty and desire
+                  to see our children succeed. .
                 </p>
               </div>
               <div className="w-full md:w-1/2">

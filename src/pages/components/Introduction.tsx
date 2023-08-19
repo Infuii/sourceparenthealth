@@ -95,7 +95,7 @@ export default function Introduction() {
       <div className="z-1 relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className="z-1 justify-top relative top-10 flex h-[150vh] w-4/5 flex-col items-center rounded-lg bg-pink-100 px-10 shadow-lg lg:w-1/2 lg:w-[100vh] lg:gap-10"
+          className="z-1 justify-top relative top-10 flex h-[140vh] w-4/5 flex-col items-center rounded-lg bg-pink-100 px-10 shadow-lg lg:w-1/2 lg:w-[100vh] lg:gap-10"
           style={{
             width: "100%",
             backgroundBlendMode: "multiply",
@@ -241,19 +241,15 @@ export default function Introduction() {
           </motion.div>
           <motion.div
             ref={ref5}
-            className="absolute flex flex w-2/5 items-center justify-center"
+            className="absolute flex flex w-2/5 items-center justify-center md:top-[95vh] lg:top-[100vh] xl:top-[65vh]"
             transition={{ duration: 1.5, delay: 0.75 }}
             initial="hidden"
             animate={inView5 ? "visible" : "hidden"}
             variants={fadeIn}
-            style={{ top: "65vh" }}
           >
             <div
-              className="relative w-2/3"
-              style={{
-                position: "relative",
-                top: window.innerWidth <= 1280 ? "30vh" : "10vh",
-              }}
+              className="relative top-[50vh] w-2/3 md:top-[5vh] lg:top-[5vh] xl:top-[30vh]"
+              style={{ position: "relative" }}
             >
               <h1 className="text-center text-3xl text-gray-300">
                 Sign up to our Newsletter
@@ -537,11 +533,15 @@ export default function Introduction() {
           <div className="w-1/2">
             <h2 className="text-3xl font-semibold">Fitness</h2>
             <p className="text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              rutrum, metus quis eleifend sollicitudin, lacus elit faucibus
-              tortor, sed molestie enim arcu et nibh. Curabitur fermentum felis
-              id ultrices cursus. Curabitur sodales felis sed tortor aliquet,
-              sed vulputate elit condimentum.
+              Let us redefine fitness to thriving and for thriving one needs to
+              be connected to the Source. So that means we need to be less
+              domesticated and more in the flow of how nature designed us. How
+              do we balance this life of living on the cusp of nature and
+              domestication or urbanization? So, to be fit, you need to build
+              some skills to keep you away from fear once the danger is over and
+              to be connected to your source of energy and motivation and love
+              in order to be truly fit and thriving. Welcome to Soucre Parent
+              Health Fitness.
             </p>
           </div>
         </motion.div>
@@ -559,11 +559,15 @@ export default function Introduction() {
           <div className="w-1/2">
             <h2 className="text-3xl font-semibold">Nutrition</h2>
             <p className="text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              rutrum, metus quis eleifend sollicitudin, lacus elit faucibus
-              tortor, sed molestie enim arcu et nibh. Curabitur fermentum felis
-              id ultrices cursus. Curabitur sodales felis sed tortor aliquet,
-              sed vulputate elit condimentum.
+              Nutrition is a word that has been used rather as a cliche in the
+              last decade. However there is way more to it than simply adding
+              some vitamins and isolated minerals to our body. Sometimes we
+              start to even think of our food as micro and macronutrients and
+              make it almost mechanistic as how much of protein, carbs and fat
+              we are supposed to eat. How does it make you feel to eat food this
+              way? You will learn what nourishes you truly and how nutrition
+              goes way beyond food, vitamins, supplements, proteins, carbs and
+              fats.
             </p>
           </div>
           <div className="w-1/2">
@@ -595,11 +599,18 @@ export default function Introduction() {
           <div className="w-1/2">
             <h2 className="text-3xl font-semibold">Nutrition</h2>
             <p className="text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              rutrum, metus quis eleifend sollicitudin, lacus elit faucibus
-              tortor, sed molestie enim arcu et nibh. Curabitur fermentum felis
-              id ultrices cursus. Curabitur sodales felis sed tortor aliquet,
-              sed vulputate elit condimentum.
+              Dont you want to enjoy your food without thinking too much about
+              the nutrients? However, you also want your favourite foods to
+              moorish you for energy and not upset your stomach or give you
+              ulcers and headaches or add more weight to your body than you need
+              to. How does it all work? Why do some people eat whatever they
+              want and yet stay slim and energetic while some of us count each
+              calorie and weight each nutrient and yet we add on love handles,
+              swelling in our joints or worse off get acidity or ulcers and
+              headaches? This is where Source Parent Health will help you
+              understand how you are processing foods and also get you back to
+              making choices that give you the flavours you want rather than to
+              satisfy cravings.
             </p>
           </div>
         </motion.div>
