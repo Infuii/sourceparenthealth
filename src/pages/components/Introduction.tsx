@@ -20,6 +20,8 @@ export default function Introduction() {
     },
   };
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   // Function to update window width
   const updateWindowDimensions = () => {
@@ -140,7 +142,7 @@ export default function Introduction() {
             Thoughts that Influence Money + Energy{" "}
           </motion.p>
           <motion.div
-            className="flex flex-col gap-4 sm:flex-row"
+            className="z-20 flex flex-col gap-4 sm:flex-row"
             ref={ref5}
             variants={fadeIn}
             initial="hidden"
@@ -153,12 +155,44 @@ export default function Introduction() {
             >
               Get Started
             </Link>
-            <Link
-              href="/about"
-              className="relative top-5 rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-white"
-            >
-              Learn More
-            </Link>
+            <div ref={dropdownRef} className="relative top-5 z-50">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="rounded-lg border border-gray-500 bg-transparent px-4 py-2 text-white"
+              >
+                Learn More
+              </button>
+              {isOpen && (
+                <div className="absolute z-50 mt-2 w-48 rounded-md bg-white shadow-lg">
+                  <div className="z-50 py-1">
+                    <Link
+                      href="#"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Book your Discovery call now
+                    </Link>
+                    <Link
+                      href="#"
+                      className="z-1000 block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Subscribe to Newsletter
+                    </Link>
+                    <Link
+                      href="#"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Download your Free eBook: The Prepared TeenAdult
+                    </Link>
+                    <Link
+                      href="#"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
           </motion.div>
           <motion.div
             ref={ref4}
