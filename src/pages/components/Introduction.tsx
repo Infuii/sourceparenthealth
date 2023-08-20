@@ -83,6 +83,8 @@ export default function Introduction() {
   const [ref5, inView5] = useInView({
     threshold: 0.1,
   });
+
+  const newsletter = useRef<HTMLDivElement | null>(null);
   const ebookRef = useRef<HTMLDivElement | null>(null);
   const title = "The Prepared TeenAdult";
   const subtitle =
@@ -172,19 +174,29 @@ export default function Introduction() {
                       Book your Discovery call now
                     </Link>
                     <Link
+                      onClick={() =>
+                        scroll.scrollTo(newsletter?.current?.offsetTop ?? 0, {
+                          smooth: true,
+                        })
+                      }
                       href="#"
                       className="z-1000 block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Subscribe to Newsletter
                     </Link>
                     <Link
+                      onClick={() =>
+                        scroll.scrollTo(ebookRef?.current?.offsetTop ?? 0, {
+                          smooth: true,
+                        })
+                      }
                       href="#"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Download your Free eBook: The Prepared TeenAdult
                     </Link>
                     <Link
-                      href="#"
+                      href="/contact"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Contact Us
@@ -282,6 +294,7 @@ export default function Introduction() {
             variants={fadeIn}
           >
             <div
+              ref={newsletter}
               className="relative top-[60vh] w-2/3 md:top-[5vh] lg:top-[5vh] xl:top-[30vh]"
               style={{ position: "relative" }}
             >
