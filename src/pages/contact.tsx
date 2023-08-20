@@ -64,6 +64,27 @@ export default function Contact() {
       answer:
         "Contact to learn more on building some extra income either as a side gig or make it your full time to not only replace your current income but take it beyond what you currently earn.  ",
     },
+    {
+      question: "What is the cost of customized group sessions?",
+      answer:
+        "Groups of 5 or more: \n       a. single session $30 per person \n        b. 4 session bundle $100 per person @$25 per session in single payment \n Either you get to choose your own group and SPH will customize the program to help you achieve your goals. \nThe second option is to join the group programs that will be posted on the Events tab. If you are signed up to receive the newsletter, you will be informed of any group coaching programs that will be designed.\n Feel free to contact SPH to ask for specific goal-oriented group sessions. We will appreciate that effort and do our best to customize the programs to your needs.",
+    },
+    {
+      question: "What is a Health Planning session?",
+      answer:
+        "Outcome: Connected to one Source of credible research, community and honest responses to guide you to the Path you are meant to be on for creating more focus, energy, influence and money. Arrive at a plan for your meals, energizing sleep and exercises that you are motivated to do. Build daily habits that improve your condition from diseased to high performer.\nBenefits: \nOn this free call, you will talk about your health concerns and what would you like to achieve immediately, in the next month, next 3 months and beyond. \nYou will understand the obstacles coming in your way and how to remove some roadblocks yourself. \nLearn a unique method of weight loss, diabetes reversal without medication\nConnect to others on the same path through Facebook.",
+    },
+    {
+      question:
+        "What do I get in Health Coaching in a month or in group sessions?",
+      answer:
+        "Quickly get support for any acute issues like digestive upsets, a diagnosis of diabetes or how to get off medications that may be giving you side-effects.  Find your path with more ease and reduce chatter from generic solutions. Build knowledge for the source of your health and the source for your challenges through personal coaching so you too can get on the path of being who you are meant to be. \nBegin your journey to the Source with more confidence and build consistency and relationships to anchor you in your healing without distractions and attend the weekly calls on topics that range from unhealthy weight, fatigue/energy, diabetes, digestion and stress/trauma. \nWhen you do sessions in a group, you get motivated by creating your own circle of influence of 5 people moving forward to become the best versions of themselves. We do get motivated when others around us are also taking action because we become who we hang out with. \nYou could also bring together a group of 5 or more of your friends to create a customized health coaching program to build more consistency and get immense knowledge and proficiency about what makes you YOU and you’re not alone. You also change the lives of 4 others and your circle expands, so you are shifting your circle of influence to the one that makes you shine. Now you are building more consistency and getting immense knowledge and proficiency about what makes you YOU and you’re not alone.",
+    },
+    {
+      question: "Why do I need coaching for 3 months?",
+      answer:
+        "It takes almost 90 days to build a habit. Having a coach by your side has always worked even for those working to get to the olympics. get this deal and test it for yourself and see yourself get things done that you have always imagined. 3 months of coaching with 4 sessions each month will build accountability and train your brain to change your personality to who you truly are and who you really want to be.\nWhen you do one-on-one coaching for 3 months: Now you are building confidence not only in yourself but also in your coach who can be your sounding board, so you start to take risks without fear. You will start building focus, self-esteem, influence and joy and that will become your habit and the new you will emerge because you would have trained this new set of muscle and memory. Your own intellect will become your guide. You will now know how to keep your balance in every situation",
+    },
   ];
 
   useEffect(() => {

@@ -108,7 +108,7 @@ export default function Introduction() {
           <hr className="h-3 border-gray-300"></hr>
           <motion.h1
             ref={ref5}
-            className="relative top-5 text-5xl font-light text-white sm:text-6xl md:text-7xl"
+            className="relative top-5 text-center text-5xl font-light text-white sm:text-6xl md:text-7xl"
             transition={{ duration: 1.0, delay: 0.2 }}
             initial="hidden"
             animate={inView5 ? "visible" : "hidden"}
@@ -118,7 +118,7 @@ export default function Introduction() {
           </motion.h1>
           <motion.h5
             ref={ref5}
-            className="relative top-5 text-2xl font-light text-white sm:text-3xl md:text-4xl"
+            className="relative top-5 text-center text-2xl font-light text-white sm:text-3xl md:text-4xl"
             variants={fadeIn}
             initial="hidden"
             transition={{ duration: 1.1, delay: 0.5 }}
@@ -177,14 +177,14 @@ export default function Introduction() {
                 <FaAddressBook className="text-6xl text-blue-500" />
               </div>
               <motion.h2
-                className="relative top-5 text-3xl font-light text-white"
+                className="relative top-5 text-center text-3xl font-light text-white"
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Become the Driver of your life
               </motion.h2>
               <motion.p
-                className="relative top-5 tracking-wide text-gray-300"
+                className="relative top-5 text-center tracking-wide text-gray-300"
                 style={{ fontFamily: "Montserrat" }}
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -200,14 +200,14 @@ export default function Introduction() {
                 <FaAward className="text-6xl text-yellow-500" />
               </div>
               <motion.h2
-                className="relative top-5 text-3xl font-light text-white"
+                className="relative top-5 text-center text-3xl font-light text-white"
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Create What Matters Most
               </motion.h2>
               <motion.p
-                className="relative top-5 tracking-wide text-gray-300"
+                className="relative top-5 text-center tracking-wide text-gray-300"
                 style={{ fontFamily: "Montserrat" }}
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -223,14 +223,14 @@ export default function Introduction() {
                 <FaGem className="text-6xl text-pink-500" />
               </div>
               <motion.h2
-                className="relative top-5 text-3xl font-light text-white"
+                className="relative top-5 text-center text-3xl font-light text-white"
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Experience Abundance & Energy
               </motion.h2>
               <motion.p
-                className="relative top-5 tracking-wide text-gray-300"
+                className="relative top-5 text-center tracking-wide text-gray-300"
                 style={{ fontFamily: "Montserrat" }}
                 variants={fadeIn}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -248,7 +248,7 @@ export default function Introduction() {
             variants={fadeIn}
           >
             <div
-              className="relative top-[50vh] w-2/3 md:top-[5vh] lg:top-[5vh] xl:top-[30vh]"
+              className="relative top-[60vh] w-2/3 md:top-[5vh] lg:top-[5vh] xl:top-[30vh]"
               style={{ position: "relative" }}
             >
               <h1 className="text-center text-3xl text-gray-300">
@@ -663,7 +663,7 @@ export default function Introduction() {
           </motion.div>
           <motion.p
             ref={subtitleRef}
-            className="font-raleway z-10 mb-6 tracking-wide"
+            className="font-raleway z-10 mb-6 justify-center text-center tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: subtitleInView ? 1 : 0 }}
             transition={{ duration: 1 }}
