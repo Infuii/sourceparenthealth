@@ -43,7 +43,6 @@ const SocialMediaBox: React.FC<SocialMediaBoxProps> = ({
         width: "10vh",
         height: "10vh",
         position: "relative",
-        top: "-10vh",
       }}
       initial="initial"
       animate="animate"
