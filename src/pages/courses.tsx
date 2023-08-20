@@ -37,30 +37,37 @@ export default function Courses() {
     setProductPurchased(true);
   };
 
-  const handlePurchase = async (priceId: string) => {
-    // Call your backend to create the Checkout Session
+  const handlePurchase = async (selectedPriceId: string) => {
+    try {
+      // Call your backend to create the Checkout Session
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedPriceId }),
+      });
 
-    const response = await fetch("./api/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        priceId: priceId,
-      }),
-    });
-
-    const result = (await response.json()) as { sessionId: string };
-    const { sessionId } = result;
-
-    // When the customer clicks on the button, redirect them to Checkout.
-    const stripe = await stripePromise;
-    if (stripe !== null) {
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-
-      if (error) {
-        console.log(error);
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Server responded with error:", errorData.error);
+        throw new Error("Failed to create checkout session");
       }
+
+      const data: { sessionId: string } = await response.json();
+      console.log("Received sessionId from backend:", data.sessionId);
+      const { sessionId } = data;
+
+      // When the customer clicks on the button, redirect them to Checkout.
+      const stripe = await stripePromise;
+      if (stripe !== null) {
+        const { error } = await stripe.redirectToCheckout({ sessionId });
+        if (error) {
+          console.log(error);
+        }
+      }
+    } catch (err) {
+      console.error("There was an error with the purchase process:", err);
     }
   };
 
@@ -82,7 +89,8 @@ export default function Courses() {
         "Weekly Group Calls focusing on weight, diabetes",
         "Weekly Group Calls focusing on fatigue, stress",
       ],
-      priceId: "price_1NVJ11Lg8nvmDPHiYx3Covxw",
+      monthlyPriceId: "price_1NhIJbLg8nvmDPHiOQigBy1k",
+      yearlyPriceId: "price_1NhIJbLg8nvmDPHibiS7ZTui",
       icon: <FaBrain className="text-4xl text-green-500" />,
     },
     {
@@ -102,7 +110,8 @@ export default function Courses() {
         "Clear Understanding on Diabetes, Digestive Disorders, Unwanted Weight, and Fatty Liver",
         "Create Own Meal Plans without Compromising on Taste and Family Gatherings",
       ],
-      priceId: "price_1NVJ11Lg8nvmDPHiYx3Covxw", // Assuming the priceId remains the same; you might want to update this if different
+      monthlyPriceId: "price_1NhIUiLg8nvmDPHijSGeb3Wy",
+      yearlyPriceId: "price_1NhIUiLg8nvmDPHiFSIvpnUt",
       icon: <FaHeart className="text-4xl text-red-500" />,
     },
 
@@ -123,7 +132,8 @@ export default function Courses() {
         "Learn Your Energetics",
         "Encompasses All Programs",
       ],
-      priceId: "price_1Nfm83Lg8nvmDPHiMWyGeUae",
+      monthlyPriceId: "price_1NhIWrLg8nvmDPHi98uc3WJj",
+      yearlyPriceId: "price_1NhIWrLg8nvmDPHioBmtDX5M",
       icon: <FaFeather className="text-4xl text-blue-500" />,
     },
   ];
@@ -168,59 +178,67 @@ export default function Courses() {
         className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-col sm:items-start sm:justify-start sm:gap-4 md:flex-row md:justify-center"
         animate={animation}
       >
-        {courses.map((course, index) => (
-          <motion.div
-            key={course.title}
-            className={`relative flex h-[700px] w-[350px] flex-col justify-between rounded-lg border border-t-4 border-black border-green-400 p-5 shadow shadow-xl transition-all duration-500 ease-in-out hover:border-8 ${
-              index === 1 ? "scale-105 transform text-black" : "bg-gray-100"
-            }`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: index * 0.5 }}
-          >
-            <Link href={`/courses/${index + 1}`}>
-              {index === 1 && (
-                <div className="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 transform rounded bg-black px-2 py-1 text-lg text-white">
-                  POPULAR
+        {courses.map((course, index) => {
+          // Determine selectedPriceId for each course inside the map function
+          const selectedPriceId =
+            pricingModel === "monthly"
+              ? course.monthlyPriceId
+              : course.yearlyPriceId;
+
+          return (
+            <motion.div
+              key={course.title}
+              className={`relative flex h-[700px] w-[350px] flex-col justify-between rounded-lg border border-t-4 border-black border-green-400 p-5 shadow shadow-xl transition-all duration-500 ease-in-out hover:border-8 ${
+                index === 1 ? "scale-105 transform text-black" : "bg-gray-100"
+              }`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.5 }}
+            >
+              <Link href={`/courses/${index + 1}`}>
+                {index === 1 && (
+                  <div className="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 transform rounded bg-black px-2 py-1 text-lg text-white">
+                    POPULAR
+                  </div>
+                )}
+                <div className="flex flex-col items-center justify-start space-y-4">
+                  {course.icon}
+                  <h1 className="text-xl font-semibold">{course.title}</h1>
+                  <p className="text-sm">{course.description}</p>
+                  <p className="font-serif text-lg font-bold text-gray-500">
+                    Price:{" "}
+                    {pricingModel === "monthly"
+                      ? course.monthlyPrice
+                      : course.yearlyPrice}
+                    <span className="text-sm font-normal">/{pricingModel}</span>
+                  </p>
                 </div>
-              )}
-              <div className="flex flex-col items-center justify-start space-y-4">
-                {course.icon}
-                <h1 className="text-xl font-semibold">{course.title}</h1>
-                <p className="text-sm">{course.description}</p>
-                <p className="font-serif text-lg font-bold text-gray-500">
-                  Price:{" "}
-                  {pricingModel === "monthly"
-                    ? course.monthlyPrice
-                    : course.yearlyPrice}
-                  <span className="text-sm font-normal">/{pricingModel}</span>
-                </p>
+              </Link>
+              <div className="py-2">
+                {course.advantages.map((advantage, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex flex-row items-center space-x-2 py-1"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <FaCheck className="text-sm text-green-500" />
+                    <span className="text-md text-gray-600">{advantage}</span>
+                  </motion.div>
+                ))}
               </div>
-            </Link>
-            <div className="py-2">
-              {course.advantages.map((advantage, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-row items-center space-x-2 py-1"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
+              <div>
+                <button
+                  className="w-full rounded bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:border-4 hover:border-transparent hover:bg-blue-700 hover:shadow-lg"
+                  onClick={() => void handlePurchase(selectedPriceId)}
                 >
-                  <FaCheck className="text-sm text-green-500" />
-                  <span className="text-md text-gray-600">{advantage}</span>
-                </motion.div>
-              ))}
-            </div>
-            <div>
-              <button
-                className="w-full rounded bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:border-4 hover:border-transparent hover:bg-blue-700 hover:shadow-lg"
-                onClick={() => void handlePurchase(course.priceId)}
-              >
-                Buy this Plan
-              </button>
-            </div>
-          </motion.div>
-        ))}
+                  Buy this Plan
+                </button>
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
       <br />
       <br />

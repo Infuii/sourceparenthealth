@@ -11,7 +11,11 @@ if (!stripeSecretKey) {
 const stripe = new Stripe(stripeSecretKey, { apiVersion: '2022-11-15' });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { priceId } = req.body as { priceId: string };
+  const { selectedPriceId } = req.body as { selectedPriceId?: string };
+
+  if (!selectedPriceId || typeof selectedPriceId !== 'string' || selectedPriceId.trim() === '') {
+    return res.status(400).json({ error: 'No valid priceId provided' });
+  }
 
   // Create a Checkout Session.
   const session = await stripe.checkout.sessions.create({
@@ -19,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     payment_method_types: ['card'],
     line_items: [
       {
-        price: priceId,
+        price: selectedPriceId,
         quantity: 1,
       },
     ],
