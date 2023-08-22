@@ -75,11 +75,17 @@ export default function Navbar({ sessionData }: NavbarProps) {
             >
               {isDropdownOpen ? (
                 <p>
-                  Home <FaChevronUp className="inline-block" color="" />
+                  Home{" "}
+                  <FaChevronUp className="inline-block" color="" size={13.5} />
                 </p>
               ) : (
                 <p>
-                  Home <FaChevronDown className="inline-block" color="" />
+                  Home{" "}
+                  <FaChevronDown
+                    className="inline-block"
+                    color=""
+                    size={13.5}
+                  />
                 </p>
               )}
             </button>
