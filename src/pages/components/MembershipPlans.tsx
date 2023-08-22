@@ -52,6 +52,7 @@ const MembershipPlans: React.FC = () => {
             hours, get one group coaching for five people once a month, and get
             access to all the events. */}
           </p>
+          <br />
           <button
             onClick={() => toggleExpand(index)}
             className="mb-4 rounded bg-blue-500 px-4 py-2 text-white"
