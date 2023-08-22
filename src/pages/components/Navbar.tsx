@@ -88,6 +88,14 @@ export default function Navbar({ sessionData }: NavbarProps) {
                 <div className="rounded-md ring-1 ring-black ring-opacity-5">
                   <div className="py-1">
                     <ScrollLink
+                      to="newsletterSection"
+                      smooth={true}
+                      duration={500}
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Newsletter
+                    </ScrollLink>
+                    <ScrollLink
                       to="ebookSection"
                       smooth={true}
                       duration={500}
@@ -104,14 +112,6 @@ export default function Navbar({ sessionData }: NavbarProps) {
                       View Testimonials
                     </ScrollLink>
                     <ScrollLink
-                      to="newsletterSection"
-                      smooth={true}
-                      duration={500}
-                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      Newsletter
-                    </ScrollLink>
-                    <ScrollLink
                       to="socialSection"
                       smooth={true}
                       duration={500}
@@ -120,16 +120,16 @@ export default function Navbar({ sessionData }: NavbarProps) {
                       Socials
                     </ScrollLink>
                     <Link
-                      href="/contact"
-                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      Frequently Asked Questions
-                    </Link>
-                    <Link
                       href="https://calendly.com/sourceparenthealth"
                       className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                     >
                       Book a Discovery Call
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Frequently Asked Questions
                     </Link>
                   </div>
                 </div>
