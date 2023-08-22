@@ -66,7 +66,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-10">
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
-          <Link href="/courses">Shop</Link>
+          <Link href="/courses">Services</Link>
           <Link href="/pictures">Pictures</Link>
         </div>
       </div>
