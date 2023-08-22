@@ -5,11 +5,15 @@ import { useAnimation, motion } from "framer-motion";
 import Link from "next/link";
 import { loadStripe } from "@stripe/stripe-js";
 const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+import Navbar from "../components/Navbar";
+import { useSession } from "next-auth/react";
+import Scroller from "../components/Scroller";
 
 if (!stripePublishableKey) {
   throw new Error("Stripe Publishable Key is not set");
 }
 export default function One() {
+  const { data: sessionData } = useSession();
   const { ref, inView } = useInView({ threshold: 0.1 });
   const animation = useAnimation();
   const [pricingModel, setPricingModel] = useState("monthly");
@@ -125,7 +129,12 @@ export default function One() {
   ];
 
   return (
-    <div className="items-center justify-center text-center">
+    <div className="main m-0 min-h-screen items-center justify-center bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] p-0 pb-16 text-center">
+      <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
+      <Scroller />
+      <Navbar sessionData={sessionData as never} />
+      <br />
+      <br />
       <br />
       <button
         className={`px-4 py-2 ${
