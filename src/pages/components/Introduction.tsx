@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React, { useEffect, useRef, useState } from "react";
 import { FaAddressBook, FaAngleUp, FaAward, FaGem } from "react-icons/fa";
-import { animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll, Element } from "react-scroll";
 import { BookOpen, Download } from "react-feather"; // SVG icons from Feather Icons
 
 export default function Introduction() {
@@ -285,6 +285,7 @@ export default function Introduction() {
               </motion.p>
             </motion.div>
           </motion.div>
+          <Element name="newsletterSection"></Element>
           <motion.div
             ref={ref5}
             className="absolute flex flex w-2/5 items-center justify-center md:top-[95vh] lg:top-[100vh] xl:top-[65vh]"
@@ -392,7 +393,6 @@ export default function Introduction() {
                 <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
               </div>
             </div>
-
             <div>
               <strong className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white">
                 Wellness E-Book
@@ -663,71 +663,73 @@ export default function Introduction() {
         </motion.div>
       </div>
       <br />
-      <motion.div
-        ref={ebookRef}
-        className="relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden text-white"
-        style={{
-          backgroundImage: `url(${backgroundCoverSrc})`,
-        }}
-      >
+      <Element name="ebookSection">
         <motion.div
-          className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-md backdrop-filter"
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1 }}
-        />
-        <AnimatePresence>
-          <motion.div className="z-10 mb-8 flex w-2/5 justify-center sm:w-1/4 md:w-1/5">
-            <BookOpen color="#fff" size={48} />
-          </motion.div>
-          <motion.img
-            ref={imgRef}
-            src={ebookCoverSrc} // maybe change to https://fastly.picsum.photos/id/377/200/300.jpg?hmac=veEWg3ApI7rkKqMF6MuaWBmxPgnEe-Ar9eDdMG3q-kk or https://fastly.picsum.photos/id/959/200/300.jpg?hmac=q2WZ7w-aqWQyUVa4vEv-28yCS6TLS-M19or3y7YVvso
-            alt="E-Book Cover"
-            className="z-10 mb-8 w-2/5 rounded object-cover sm:w-1/4 md:w-1/6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: imgInView ? 1 : 0 }}
+          ref={ebookRef}
+          className="relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden text-white"
+          style={{
+            backgroundImage: `url(${backgroundCoverSrc})`,
+          }}
+        >
+          <motion.div
+            className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-md backdrop-filter"
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1 }}
           />
-          <motion.div
-            ref={heroRef}
-            className="z-10 mb-4 text-5xl font-bold tracking-wide"
-          >
-            {title.split("").map((char, index) => (
-              <motion.span
-                key={char + "-" + index.toString()}
-                initial="hidden"
-                animate={heroInView ? "visible" : "hidden"}
-                transition={{ delay: index * 0.25, duration: 5 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-          <motion.p
-            ref={subtitleRef}
-            className="font-raleway z-10 mb-6 justify-center text-center tracking-wide"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: subtitleInView ? 1 : 0 }}
-            transition={{ duration: 1 }}
-          >
-            {subtitle}
-          </motion.p>
-          <motion.a
-            href="/ebook.pdf"
-            download
-            className="z-10 flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold tracking-wide text-black transition-colors duration-200 hover:border-black hover:bg-purple-300"
-            whileHover={{ scale: 1.1 }}
-          >
-            <Download color="#8B5CF6" size={24} /> Get a free viewing of our
-            e-book!
-          </motion.a>
-        </AnimatePresence>
-      </motion.div>
+          <AnimatePresence>
+            <motion.div className="z-10 mb-8 flex w-2/5 justify-center sm:w-1/4 md:w-1/5">
+              <BookOpen color="#fff" size={48} />
+            </motion.div>
+            <motion.img
+              ref={imgRef}
+              src={ebookCoverSrc} // maybe change to https://fastly.picsum.photos/id/377/200/300.jpg?hmac=veEWg3ApI7rkKqMF6MuaWBmxPgnEe-Ar9eDdMG3q-kk or https://fastly.picsum.photos/id/959/200/300.jpg?hmac=q2WZ7w-aqWQyUVa4vEv-28yCS6TLS-M19or3y7YVvso
+              alt="E-Book Cover"
+              className="z-10 mb-8 w-2/5 rounded object-cover sm:w-1/4 md:w-1/6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: imgInView ? 1 : 0 }}
+              transition={{ duration: 1 }}
+            />
+            <motion.div
+              ref={heroRef}
+              className="z-10 mb-4 text-5xl font-bold tracking-wide"
+            >
+              {title.split("").map((char, index) => (
+                <motion.span
+                  key={char + "-" + index.toString()}
+                  initial="hidden"
+                  animate={heroInView ? "visible" : "hidden"}
+                  transition={{ delay: index * 0.25, duration: 5 }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </motion.div>
+            <motion.p
+              ref={subtitleRef}
+              className="font-raleway z-10 mb-6 justify-center text-center tracking-wide"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: subtitleInView ? 1 : 0 }}
+              transition={{ duration: 1 }}
+            >
+              {subtitle}
+            </motion.p>
+            <motion.a
+              href="/ebook.pdf"
+              download
+              className="z-10 flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold tracking-wide text-black transition-colors duration-200 hover:border-black hover:bg-purple-300"
+              whileHover={{ scale: 1.1 }}
+            >
+              <Download color="#8B5CF6" size={24} /> Get a free viewing of our
+              e-book!
+            </motion.a>
+          </AnimatePresence>
+        </motion.div>
+      </Element>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Element } from "react-scroll";
 
 type Testimonial = {
   name: string;
@@ -56,7 +57,8 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
   }, [currentTestimonial]);
 
   return (
-    <div
+    <Element
+      name="testimonialSection"
       className={`container mx-auto my-10 flex flex-col overflow-hidden shadow-sm md:my-24 md:flex-row ${
         isTestimonialsVisible ? "opacity-100" : "opacity-0"
       } transition-opacity duration-700`}
@@ -131,7 +133,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
           <FaArrowRight />
         </button>
       </div>
-    </div>
+    </Element>
   );
 };
 

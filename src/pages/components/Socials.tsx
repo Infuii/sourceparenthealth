@@ -7,6 +7,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import { Element } from "react-scroll";
 
 type SocialMediaBoxProps = {
   icon: React.ReactNode;
@@ -87,50 +88,52 @@ const SocialMediaBox: React.FC<SocialMediaBoxProps> = ({
 
 const Socials: React.FC = () => {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="grid grid-cols-2 gap-8 sm:grid-cols-5">
-        <SocialMediaBox
-          icon={<FaFacebook className="text-6xl text-blue-500" />}
-          followerCount={332}
-          postCount={500}
-          additionalCount={100}
-          platform="Facebook"
-          link="https://www.facebook.com/sarah.musavi.1"
-        />
-        <SocialMediaBox
-          icon={<FaInstagram className="text-6xl text-pink-500" />}
-          followerCount={81}
-          postCount={171}
-          additionalCount={129}
-          platform="Instagram"
-          link="https://www.instagram.com/organictreatments/"
-        />
-        <SocialMediaBox
-          icon={<FaTwitter className="text-6xl text-blue-500" />}
-          followerCount={185}
-          postCount={1500}
-          additionalCount={327}
-          platform="Twitter"
-          link="https://twitter.com/myhealthalive"
-        />
-        <SocialMediaBox
-          icon={<FaLinkedin className="text-6xl text-blue-500" />}
-          followerCount={1539}
-          postCount={1500}
-          additionalCount={300}
-          platform="Linkedin"
-          link="https://www.linkedin.com/newsletters/6990131423105933313/"
-        />
-        <SocialMediaBox
-          icon={<FaYoutube className="text-6xl text-red-500" />}
-          followerCount={65}
-          postCount={60}
-          additionalCount={300}
-          platform="YouTube"
-          link="https://www.youtube.com/@sarahmusavi561/videos"
-        />
+    <Element name="socialSection">
+      <div className="flex h-screen items-center justify-center">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-5">
+          <SocialMediaBox
+            icon={<FaFacebook className="text-6xl text-blue-500" />}
+            followerCount={332}
+            postCount={500}
+            additionalCount={100}
+            platform="Facebook"
+            link="https://www.facebook.com/sarah.musavi.1"
+          />
+          <SocialMediaBox
+            icon={<FaInstagram className="text-6xl text-pink-500" />}
+            followerCount={81}
+            postCount={171}
+            additionalCount={129}
+            platform="Instagram"
+            link="https://www.instagram.com/organictreatments/"
+          />
+          <SocialMediaBox
+            icon={<FaTwitter className="text-6xl text-blue-500" />}
+            followerCount={185}
+            postCount={1500}
+            additionalCount={327}
+            platform="Twitter"
+            link="https://twitter.com/myhealthalive"
+          />
+          <SocialMediaBox
+            icon={<FaLinkedin className="text-6xl text-blue-500" />}
+            followerCount={1539}
+            postCount={1500}
+            additionalCount={300}
+            platform="Linkedin"
+            link="https://www.linkedin.com/newsletters/6990131423105933313/"
+          />
+          <SocialMediaBox
+            icon={<FaYoutube className="text-6xl text-red-500" />}
+            followerCount={65}
+            postCount={60}
+            additionalCount={300}
+            platform="YouTube"
+            link="https://www.youtube.com/@sarahmusavi561/videos"
+          />
+        </div>
       </div>
-    </div>
+    </Element>
   );
 };
 

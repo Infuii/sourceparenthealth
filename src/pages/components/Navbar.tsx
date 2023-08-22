@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { signOut, signIn } from "next-auth/react";
 import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 import { type Session } from "next-auth";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 interface NavbarProps {
   sessionData: Session;
@@ -12,6 +14,7 @@ interface NavbarProps {
 export default function Navbar({ sessionData }: NavbarProps) {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -64,6 +67,75 @@ export default function Navbar({ sessionData }: NavbarProps) {
         } sm:flex sm:w-auto sm:items-center`}
       >
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-10">
+          {/* Dropdown */}
+          <div className="group relative">
+            <button
+              className="focus:outline-none"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              {isDropdownOpen ? (
+                <p>
+                  Home <FaChevronUp className="inline-block" color="" />
+                </p>
+              ) : (
+                <p>
+                  Home <FaChevronDown className="inline-block" color="" />
+                </p>
+              )}
+            </button>
+            {isDropdownOpen && (
+              <div className="absolute left-0 z-10 mt-2 w-48 rounded-md bg-white shadow-lg">
+                <div className="rounded-md ring-1 ring-black ring-opacity-5">
+                  <div className="py-1">
+                    <ScrollLink
+                      to="ebookSection"
+                      smooth={true}
+                      duration={500}
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Download our Free E-Book!
+                    </ScrollLink>
+                    <ScrollLink
+                      to="testimonialSection"
+                      smooth={true}
+                      duration={500}
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      View Testimonials
+                    </ScrollLink>
+                    <ScrollLink
+                      to="newsletterSection"
+                      smooth={true}
+                      duration={500}
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Newsletter
+                    </ScrollLink>
+                    <ScrollLink
+                      to="socialSection"
+                      smooth={true}
+                      duration={500}
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Socials
+                    </ScrollLink>
+                    <Link
+                      href="/contact"
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Frequently Asked Questions
+                    </Link>
+                    <Link
+                      href="https://calendly.com/sourceparenthealth"
+                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Book a Discovery Call
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/courses">Services</Link>
