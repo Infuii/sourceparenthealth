@@ -48,8 +48,9 @@ const MembershipPlans: React.FC = () => {
             Monthly Membership Subscription
           </h1>
           <p className="mb-2 text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {/* Attend four weekly calls, get replies to your questions within 24
+            hours, get one group coaching for five people once a month, and get
+            access to all the events. */}
           </p>
           <button
             onClick={() => toggleExpand(index)}
