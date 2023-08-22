@@ -587,7 +587,7 @@ export default function Introduction() {
               domestication or urbanization? So, to be fit, you need to build
               some skills to keep you away from fear once the danger is over and
               to be connected to your source of energy and motivation and love
-              in order to be truly fit and thriving. Welcome to Soucre Parent
+              in order to be truly fit and thriving. Welcome to Source Parent
               Health Fitness.
             </p>
           </div>
@@ -644,7 +644,7 @@ export default function Introduction() {
             />
           </div>
           <div className="w-1/2">
-            <h2 className="text-3xl font-semibold">Nutrition</h2>
+            <h2 className="text-3xl font-semibold">Energy</h2>
             <p className="text-lg">
               Dont you want to enjoy your food without thinking too much about
               the nutrients? However, you also want your favourite foods to

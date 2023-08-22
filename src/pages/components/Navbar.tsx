@@ -37,7 +37,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
             className="relative bottom-2"
           />
         </Link>
-        <Link href="/">SourceParentHealth</Link>
+        <Link href="/">Source Parent Health</Link>
       </h1>
       <div className="sm:hidden">
         <button onClick={toggle}>
