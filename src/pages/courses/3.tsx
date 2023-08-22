@@ -48,18 +48,24 @@ export default function Three() {
       icon: <FaHeart className="text-4xl text-red-500" />,
     },
     {
-      title: "6-Month Get Back Your Energy, Reduce Belly Fat, Sleep Like a Pro",
+      title: "Level 3: Build TIME",
       description:
-        "Regain energy, reduce belly fat, and improve sleep quality.",
-      monthlyPrice: "$199",
-      yearlyPrice: "$1999",
+        "Go beyond basic habits with one-on-one customized sessions. Focus on thought nourishment, influence at home and work, a healthier money mindset, and abundant energy.",
+      monthlyPrice: "$225",
+      yearlyPrice: "$1260",
       advantages: [
-        "Advantage 1",
-        "Advantage 2",
-        "Advantage 3",
-        "Advantage 4",
-        "Advantage 5",
+        "T = Thoughts that Nourish",
+        "I = Influence at home and work",
+        "M = Money Mindset",
+        "E = Energy Abundance",
+        "Bring Back Abundance of Time",
+        "Nourish your Microbiome",
+        "Become Influential",
+        "Learn Your Energetics",
+        "Encompasses All Programs",
       ],
+      monthlyPriceId: "price_1NhIWrLg8nvmDPHi98uc3WJj",
+      yearlyPriceId: "price_1NhIWrLg8nvmDPHioBmtDX5M",
       icon: <FaFeather className="text-4xl text-blue-500" />,
     },
   ];
@@ -108,25 +114,13 @@ export default function Three() {
                   <span className="text-sm text-gray-600">{advantage}</span>
                 </motion.div>
               ))}
-              {course?.disadvantages?.map((disadvantage, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-row items-center space-x-2 py-1"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <FaTimes className="text-sm text-red-500" />
-                  <span className="text-sm text-gray-600">{disadvantage}</span>
-                </motion.div>
-              ))}
             </div>
             <div>
               <button
                 className="w-full rounded bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:border-4 hover:border-transparent hover:bg-blue-700 hover:shadow-lg"
                 onClick={() => handlePurchase()}
               >
-                Buy this Plan
+                Opt in
               </button>
             </div>
           </motion.div>

@@ -39,12 +39,24 @@ export default function Two() {
       icon: <FaBrain className="text-4xl text-green-500" />,
     },
     {
-      title: "3-Month Weight Reduction and Diabetes Prevention Program",
-      description: "Reduce weight and prevent diabetes without medication.",
-      monthlyPrice: "$99",
-      yearlyPrice: "$999",
-      advantages: ["Advantage 1", "Advantage 2", "Advantage 3"],
-      disadvantages: ["Disadvantage 1", "Disadvantage 2"],
+      title: "Level 2: GERM Health",
+      description:
+        "Building on STEM concepts with a focus on digestive health and one-on-one customized sessions.",
+      monthlyPrice: "$350",
+      yearlyPrice: "$960",
+      advantages: [
+        "G = Gut Health",
+        "E = Emotional Freedom",
+        "R = Relationship Rich",
+        "M = Money Confidence",
+        "Build on STEM Concepts",
+        "Focus on Digestive Health",
+        "Build Habits and Consistency",
+        "Clear Understanding on Diabetes, Digestive Disorders, Unwanted Weight, and Fatty Liver",
+        "Create Own Meal Plans without Compromising on Taste and Family Gatherings",
+      ],
+      monthlyPriceId: "price_1NhIUiLg8nvmDPHijSGeb3Wy",
+      yearlyPriceId: "price_1NhIUiLg8nvmDPHiFSIvpnUt",
       icon: <FaHeart className="text-4xl text-red-500" />,
     },
     {
@@ -108,25 +120,13 @@ export default function Two() {
                   <span className="text-sm text-gray-600">{advantage}</span>
                 </motion.div>
               ))}
-              {course?.disadvantages?.map((disadvantage, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-row items-center space-x-2 py-1"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <FaTimes className="text-sm text-red-500" />
-                  <span className="text-sm text-gray-600">{disadvantage}</span>
-                </motion.div>
-              ))}
             </div>
             <div>
               <button
                 className="w-full rounded bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:border-4 hover:border-transparent hover:bg-blue-700 hover:shadow-lg"
                 onClick={() => handlePurchase()}
               >
-                Buy this Plan
+                Opt in
               </button>
             </div>
           </motion.div>

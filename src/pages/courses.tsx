@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaCheck, FaTimes, FaHeart, FaBrain, FaFeather } from "react-icons/fa";
+import { FaCheck, FaHeart, FaBrain, FaFeather } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import { useAnimation, motion } from "framer-motion";
 import { useSession } from "next-auth/react";
@@ -31,11 +31,6 @@ export default function Courses() {
       void animation.start({ opacity: 0 });
     }
   }, [animation, inView]);
-  const [productPurchased, setProductPurchased] = useState(false);
-
-  const handleBuyNowClick = () => {
-    setProductPurchased(true);
-  };
 
   const handlePurchase = async (selectedPriceId: string) => {
     try {
@@ -48,13 +43,7 @@ export default function Courses() {
         body: JSON.stringify({ selectedPriceId }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Server responded with error:", errorData.error);
-        throw new Error("Failed to create checkout session");
-      }
-
-      const data: { sessionId: string } = await response.json();
+      const data: { sessionId: string } = (await response.json()) as never;
       console.log("Received sessionId from backend:", data.sessionId);
       const { sessionId } = data;
 
@@ -114,7 +103,6 @@ export default function Courses() {
       yearlyPriceId: "price_1NhIUiLg8nvmDPHiFSIvpnUt",
       icon: <FaHeart className="text-4xl text-red-500" />,
     },
-
     {
       title: "Level 3: Build TIME",
       description:
@@ -149,7 +137,7 @@ export default function Courses() {
       </div>
       <div className="mt-12 flex flex-col items-center justify-center">
         <br />
-        <h1 className="text-4xl font-semibold">Courses</h1>
+        <h1 className="text-4xl font-semibold">One-On-One Health Coaching</h1>
       </div>
       <div className="my-8 flex justify-center">
         <button
@@ -233,7 +221,7 @@ export default function Courses() {
                   className="w-full rounded bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:border-4 hover:border-transparent hover:bg-blue-700 hover:shadow-lg"
                   onClick={() => void handlePurchase(selectedPriceId)}
                 >
-                  Buy this Plan
+                  Opt in
                 </button>
               </div>
             </motion.div>
