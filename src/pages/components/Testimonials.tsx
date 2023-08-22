@@ -7,6 +7,7 @@ type Testimonial = {
   title: string;
   body: string;
   image: string;
+  main: string;
 };
 
 interface TestimonialsProps {
@@ -89,7 +90,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
           }`}
         >
           <div className="relative p-4 md:p-10">
-            <div className="mb-4 h-40 overflow-hidden rounded-md bg-indigo-200 md:h-72">
+            <div className="mb-4 h-40 overflow-hidden rounded-full bg-indigo-200 md:h-72">
               <img
                 className="h-full w-full object-cover object-center"
                 src={testimonials[currentTestimonial]?.image}
@@ -97,12 +98,16 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
                 onLoad={() => setIsLoaded(true)}
               />
             </div>
-            <h2 className="mb-2 text-xl font-semibold text-gray-800 md:text-3xl">
-              {testimonials[currentTestimonial]?.name}
+            <p className="mb-4 text-center text-4xl text-gray-800">
+              &rdquo;{testimonials[currentTestimonial]?.main}&ldquo;
+            </p>{" "}
+            <h2 className="mb-2 text-center text-xl font-semibold text-gray-800 md:text-3xl">
+              - {testimonials[currentTestimonial]?.name}
             </h2>
-            <p className="mb-4 text-gray-600">
+            <p className="mb-2 text-center text-gray-600">
               {testimonials[currentTestimonial]?.title}
             </p>
+            {/* Add location here */}
             <blockquote className="font-cursive max-h-[300px] overflow-y-auto text-center font-sans text-3xl font-light leading-relaxed">
               <p className="inline -rotate-3 transform text-9xl text-gray-500">
                 &ldquo;

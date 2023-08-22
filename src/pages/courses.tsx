@@ -66,7 +66,9 @@ export default function Courses() {
       description:
         "Reduce weight and prevent diabetes without medication with one-on-one customized sessions, four one-on-one coaching calls per month.",
       monthlyPrice: "$400",
+      monthlyFrequency: "month (4 sessions)",
       yearlyPrice: "$4400",
+      yearlyFrequency: "year ($400 off)",
       advantages: [
         "S = Sleep Restore",
         "T = Toxin Release",
@@ -87,7 +89,9 @@ export default function Courses() {
       description:
         "Building on STEM concepts with a focus on digestive health and one-on-one customized sessions.",
       monthlyPrice: "$350",
+      monthlyFrequency: "month for 3 months",
       yearlyPrice: "$960",
+      yearlyFrequency: "3 months (4 sessions)",
       advantages: [
         "G = Gut Health",
         "E = Emotional Freedom",
@@ -108,7 +112,9 @@ export default function Courses() {
       description:
         "Go beyond basic habits with one-on-one customized sessions. Focus on thought nourishment, influence at home and work, a healthier money mindset, and abundant energy.",
       monthlyPrice: "$225",
+      monthlyFrequency: "6 months",
       yearlyPrice: "$1260",
+      yearlyFrequency: "per year",
       advantages: [
         "T = Thoughts that Nourish",
         "I = Influence at home and work",
@@ -167,7 +173,6 @@ export default function Courses() {
         animate={animation}
       >
         {courses.map((course, index) => {
-          // Determine selectedPriceId for each course inside the map function
           const selectedPriceId =
             pricingModel === "monthly"
               ? course.monthlyPriceId
@@ -198,7 +203,12 @@ export default function Courses() {
                     {pricingModel === "monthly"
                       ? course.monthlyPrice
                       : course.yearlyPrice}
-                    <span className="text-sm font-normal">/{pricingModel}</span>
+                    <span className="text-sm font-normal">
+                      /
+                      {pricingModel === "monthly"
+                        ? course.monthlyFrequency
+                        : course.yearlyFrequency}
+                    </span>
                   </p>
                 </div>
               </Link>

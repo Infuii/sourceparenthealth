@@ -619,7 +619,7 @@ export default function Introduction() {
           </div>
           <div className="w-1/2">
             <img
-              src="https://images.pexels.com/photos/6200979/pexels-photo-6200979.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src="smoothies-2253423_1920.jpg"
               alt="Nutrition"
               className="h-auto w-full rounded-lg shadow-lg"
             />
@@ -631,14 +631,14 @@ export default function Introduction() {
           ref={ref4}
           className="m-2 flex w-full flex-col items-center gap-4 md:w-4/5 md:flex-row lg:relative"
           style={styles.divStyle as never}
-          variants={windowWidth <= 768 ? fadeIn : slideIn} // Use fadeIn for screens <= 768px and slideIn for larger screens
+          variants={windowWidth <= 768 ? fadeIn : slideIn}
           initial="hidden"
           animate={inView4 ? "visible" : "hidden"}
           transition={{ duration: 0.8 }}
         >
           <div className="w-1/2">
             <img
-              src="https://scontent-bos5-1.xx.fbcdn.net/v/t39.30808-6/335067741_881350312975397_3784625920049088698_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=0XarZ73yRNsAX9F6rqC&_nc_ht=scontent-bos5-1.xx&oh=00_AfAYcRpmq_e6ABDIKcGsxLOhKXsI_R3hUyayAq7-fEOWeg&oe=64A04577"
+              src="take self care-1721387_1920.jpg"
               alt="Nutrition"
               className="h-auto w-full rounded-lg shadow-lg"
             />

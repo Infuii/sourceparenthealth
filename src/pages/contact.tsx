@@ -39,6 +39,28 @@ export default function Contact() {
         "A Health Coach is the equivalent of who you may want to hire as a sports coach if you were an athlete with a goal to make it to the olympics. What would the coach do? Provide a customized plan for your fitness and keep track of your performance, provide a space to hold you accountable. At the same time, the sports coach will be your sounding board and motivator to continue doing the hard work and reminding you of your goals using the latest research as well as looking at all modalities of therapies. A Health Coach is typically a knowledgeable person in the arena of how our body, mind and spirituality work using science, intuition, experience, listening skills and allowing you to make plans for helping you with making changes in your lifestyle, thinking and overall connection to the world. A nutritionist or a dietitian, on the other hand, is mostly experienced in using food as a way to nourish you and will help you make meal plans while they may or may not be able to provide the connection to other parts of your life.",
     },
     {
+      question: "What are all the services you provide?",
+      answer:
+        "a. Free- Single discovery session for health planning, Nourished kitchen planning and/or Build\nAbundance and Wealth\n" +
+        "b. Free- Monthly group calls\n" +
+        "c. Free- Newsletter\n" +
+        "d. Weekly group programs of 5 or more participants\n" +
+        "e. One on one&nbsp;&nbsp;3 months\n" +
+        "f. One on one 6 months\n" +
+        "g. Events and retreats from time to time- will be posted on the Events tab\n" +
+        "h. Health Writing services for patients, schools, parents, corporations",
+    },
+    {
+      question: "What is Build a Nourished Kitchen Program?",
+      answer:
+        "Kitchen is your lab and its the source of what goes into your body. When you create this space with love and keep it simple and clutter-free, it will make life really easy for you and your cooking will become an activity you will look forward to in addition to it becoming the centre of your family and friends’ gatherings. It will provide you the nourishment not only to give you energy but also to fill you with joy, confidence and creativity.",
+    },
+    {
+      question: "What is the price breakdown of the three coaching programs?",
+      answer:
+        "What is the price breakdown of the 3 coaching programs\nFor single session coaching, $150/session/60-90 mins\n1 month of coaching with 4 sessions, $400/month or $4400 paid annually to save 1 month of coaching costs and you can choose your coaching months\n3 months with 12 sessions: $80/1 hour session = $960 annual payment\nor $350/month\n6 months 18 sessions $70/session = $1260 single payment \nor $225 per month for 6 months = $1350\nGenerally people like to spread to just 2 sessions a month after the first 3 months, but those who need to continue their weekly support for the next 3 months, you will have the option to extend to weekly sessions every month, so for 6 months, you get 24 sessions, $60 per session = $1440 single payment \nor $260 per month x 6 = $1560",
+    },
+    {
       question:
         "What is the difference between Nutrition, Nourishment and Fitness?",
       answer:

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 // Add the type for membership plan
 type MembershipPlanType = {
@@ -79,9 +80,12 @@ const MembershipPlans: React.FC = () => {
                 </p>
               </div>
               <div className="flex justify-between">
-                <button className="rounded bg-green-500 px-4 py-2 text-white">
+                <Link
+                  className="rounded bg-green-500 px-4 py-2 text-white"
+                  href={"https://calendly.com/sourceparenthealth"}
+                >
                   Book a session
-                </button>
+                </Link>
                 <button className="rounded bg-red-500 px-4 py-2 text-white">
                   Buy
                 </button>
