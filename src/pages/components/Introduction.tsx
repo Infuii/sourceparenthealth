@@ -528,9 +528,9 @@ export default function Introduction() {
         <div className="flex w-full flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg sm:mx-2 sm:my-4 sm:w-auto">
           <FaAddressBook color="#FF00FF" size={70} />
           <br />
-          <h2 className="text-2xl font-bold">Basic Course</h2>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <h2 className="text-2xl font-bold">Level 1: Build Your STEM</h2>
+          <p className="text-xl text-gray-500">
+            Focuses on reducing your weight and preventing diabetes
           </p>
           <button className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-white">
             <Link href="/courses/1">Learn More</Link>
@@ -539,9 +539,9 @@ export default function Introduction() {
         <div className="flex w-full flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg sm:mx-2 sm:my-4 sm:w-auto">
           <FaAward color="#FF00FF" size={70} />
           <br />
-          <h2 className="text-2xl font-bold">Premium Course</h2>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <h2 className="text-2xl font-bold">Level 2: GERM Health</h2>
+          <p className="text-xl text-gray-500">
+            Builds on ideas of STEM, focuses on your digestive health
           </p>
           <button className="mt-4 rounded-lg bg-yellow-500 px-4 py-2 text-white">
             <Link href="/courses/2">Learn More</Link>
@@ -550,9 +550,9 @@ export default function Introduction() {
         <div className="flex w-full flex-col items-center justify-center rounded-lg bg-white p-8 shadow-lg sm:mx-2 sm:my-4 sm:w-auto">
           <FaGem color="#FF00FF" size={70} />
           <br />
-          <h2 className="text-2xl font-bold">Exclusive Course</h2>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <h2 className="text-2xl font-bold">Level 3: Build TIME</h2>
+          <p className="text-xl text-gray-500">
+            Go beyond basic habits and build your TIME, build mentality
           </p>
           <button className="mt-4 rounded-lg bg-green-500 px-4 py-2 text-white">
             <Link href="/courses/3">Learn More</Link>
