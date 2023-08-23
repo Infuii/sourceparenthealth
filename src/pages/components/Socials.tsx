@@ -118,8 +118,8 @@ const Socials: React.FC = () => {
           <SocialMediaBox
             icon={<FaLinkedin className="text-6xl text-blue-500" />}
             followerCount={1539}
-            postCount={1500}
-            additionalCount={300}
+            postCount={111}
+            additionalCount={0}
             platform="Linkedin"
             link="https://www.linkedin.com/newsletters/6990131423105933313/"
           />
@@ -127,7 +127,7 @@ const Socials: React.FC = () => {
             icon={<FaYoutube className="text-6xl text-red-500" />}
             followerCount={65}
             postCount={60}
-            additionalCount={300}
+            additionalCount={0}
             platform="YouTube"
             link="https://www.youtube.com/@sarahmusavi561/videos"
           />
