@@ -21,40 +21,112 @@ export default function Pictures() {
       id: 1,
       name: "Picture 1",
       url: "/IMG_1625.JPG",
-      category: "Food",
+      category: "People",
     },
     {
       id: 2,
       name: "Picture 2",
-      url: "https://picsum.photos/200/300",
+      url: "/coffee together-2565441_1920.jpg",
       category: "Food",
     },
     {
       id: 3,
       name: "Picture 3",
-      url: "https://picsum.photos/200/300",
-      category: "Wellness",
+      url: "/IMG_6343.JPG",
+      category: "People",
     },
     {
       id: 4,
       name: "Picture 4",
-      url: "https://picsum.photos/200/300",
-      category: "Wellness",
+      url: "/carrots-2106825_1920.jpg",
+      category: "Food",
     },
     {
       id: 5,
       name: "Picture 5",
-      url: "https://picsum.photos/200/300",
-      category: "Parenting",
+      url: "/eating in nature-3366444_1920.jpg",
+      category: "Food",
     },
     {
       id: 6,
       name: "Picture 6",
-      url: "https://picsum.photos/200/300",
-      category: "Fitness",
+      url: "/IMG_3275.jpg",
+      category: "People",
+    },
+    {
+      id: 7,
+      name: "Picture 7",
+      url: "/IMG_5001.jpg",
+      category: "People",
+    },
+    {
+      id: 8,
+      name: "Picture 8",
+      url: "/vegan-3886637_1280.jpg",
+      category: "Food",
+    },
+    {
+      id: 9,
+      name: "Picture 9",
+      url: "/IMG_5495(1).jpg",
+      category: "People",
+    },
+    {
+      id: 10,
+      name: "Picture 10",
+      url: "/clouds.png",
+      category: "Wellness",
+    },
+    {
+      id: 11,
+      name: "Picture 11",
+      url: "/Kids-863053_1920.jpg",
+      category: "People",
+    },
+    {
+      id: 12,
+      name: "Picture 12",
+      url: "/fruit dish-1209170_1920.jpg",
+      category: "Food",
+    },
+    {
+      id: 13,
+      name: "Picture 13",
+      url: "/white-blood-cell-543471_1920.jpg",
+      category: "Wellness",
+    },
+    {
+      id: 14,
+      name: "Picture 14",
+      url: "/green-juice-769129_1920.jpg",
+      category: "Food",
+    },
+    {
+      id: 15,
+      name: "Picture 15",
+      url: "/smoothies-2253423_1920.jpg",
+      category: "Food",
+    },
+    {
+      id: 16,
+      name: "Picture 16",
+      url: "/IMG_5491.jpg",
+      category: "People",
+    },
+    {
+      id: 17,
+      name: "Picture 17",
+      url: "/IMG_5544.jpg",
+      category: "People",
+    },
+    {
+      id: 18,
+      name: "Picture 18",
+      url: "/family.webp",
+      category: "Parenting",
     },
   ];
-  const categories = ["Food", "Wellness", "Parenting", "Fitness"];
+  const categories = ["People", "Food", "Parenting", "Wellness"];
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);

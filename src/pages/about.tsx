@@ -27,10 +27,10 @@ export default function About() {
         >
           {/* Hero Section */}
           <section
-            className="z-0 w-full bg-cover bg-center"
+            className="z-0 w-full bg-cover bg-no-repeat"
             style={{
               height: "75vh",
-              backgroundImage: "url('/Kids-863053_1920.jpg')",
+              backgroundImage: "url('/family.webp')",
             }}
           >
             <div className="flex h-full w-full items-center justify-center bg-black bg-opacity-50 text-5xl font-semibold text-white">
