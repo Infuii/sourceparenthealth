@@ -100,8 +100,8 @@ export default function One() {
         "Clear Understanding on Diabetes, Digestive Disorders, Unwanted Weight, and Fatty Liver",
         "Create Own Meal Plans without Compromising on Taste and Family Gatherings",
       ],
-      monthlyPriceId: "price_1NhIUiLg8nvmDPHijSGeb3Wy",
-      yearlyPriceId: "price_1NhIUiLg8nvmDPHiFSIvpnUt",
+      monthlyPriceId: "price_1NiGg6Lg8nvmDPHiW458A0jk",
+      yearlyPriceId: "price_1NiGg6Lg8nvmDPHia0kLMBrT",
       icon: <FaHeart className="text-4xl text-red-500" />,
     },
     {

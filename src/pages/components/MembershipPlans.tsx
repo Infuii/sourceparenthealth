@@ -31,7 +31,7 @@ const membershipPlans: MembershipPlanType[] = [
 ];
 
 const MembershipPlans: React.FC = () => {
-  const selectedPriceId = "price_1Ni3eRLg8nvmDPHioUDa2CBO";
+  const selectedPriceId = "price_1NiGj6Lg8nvmDPHikx2k11Jl";
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const handlePurchase = async (selectedPriceId: string) => {
     try {

@@ -80,8 +80,8 @@ export default function Courses() {
         "Weekly Group Calls focusing on weight, diabetes",
         "Weekly Group Calls focusing on fatigue, stress",
       ],
-      monthlyPriceId: "price_1NhIJbLg8nvmDPHiOQigBy1k",
-      yearlyPriceId: "price_1NhIJbLg8nvmDPHibiS7ZTui",
+      monthlyPriceId: "price_1NiGeXLg8nvmDPHi4EkzjrYH",
+      yearlyPriceId: "price_1NiGeXLg8nvmDPHikaM8OINN",
       icon: <FaBrain className="text-4xl text-green-500" />,
     },
     {
@@ -103,8 +103,8 @@ export default function Courses() {
         "Clear Understanding on Diabetes, Digestive Disorders, Unwanted Weight, and Fatty Liver",
         "Create Own Meal Plans without Compromising on Taste and Family Gatherings",
       ],
-      monthlyPriceId: "price_1NhIUiLg8nvmDPHijSGeb3Wy",
-      yearlyPriceId: "price_1NhIUiLg8nvmDPHiFSIvpnUt",
+      monthlyPriceId: "price_1NiGg6Lg8nvmDPHiW458A0jk",
+      yearlyPriceId: "price_1NiGg6Lg8nvmDPHia0kLMBrT",
       icon: <FaHeart className="text-4xl text-red-500" />,
     },
     {
@@ -126,8 +126,8 @@ export default function Courses() {
         "Learn Your Energetics",
         "Encompasses All Programs",
       ],
-      monthlyPriceId: "price_1NhIWrLg8nvmDPHi98uc3WJj",
-      yearlyPriceId: "price_1NhIWrLg8nvmDPHioBmtDX5M",
+      monthlyPriceId: "price_1NiGh2Lg8nvmDPHiJvnyucmJ",
+      yearlyPriceId: "price_1NiGh2Lg8nvmDPHiqAJzs6l2",
       icon: <FaFeather className="text-4xl text-blue-500" />,
     },
   ];

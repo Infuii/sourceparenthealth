@@ -122,8 +122,8 @@ export default function One() {
         "Learn Your Energetics",
         "Encompasses All Programs",
       ],
-      monthlyPriceId: "price_1NhIWrLg8nvmDPHi98uc3WJj",
-      yearlyPriceId: "price_1NhIWrLg8nvmDPHioBmtDX5M",
+      monthlyPriceId: "price_1NiGh2Lg8nvmDPHiJvnyucmJ",
+      yearlyPriceId: "price_1NiGh2Lg8nvmDPHiqAJzs6l2",
       icon: <FaFeather className="text-4xl text-blue-500" />,
     },
   ];

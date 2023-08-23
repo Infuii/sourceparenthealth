@@ -74,8 +74,8 @@ export default function One() {
         "Weekly Group Calls focusing on weight, diabetes",
         "Weekly Group Calls focusing on fatigue, stress",
       ],
-      monthlyPriceId: "price_1NhIJbLg8nvmDPHiOQigBy1k",
-      yearlyPriceId: "price_1NhIJbLg8nvmDPHibiS7ZTui",
+      monthlyPriceId: "price_1NiGeXLg8nvmDPHi4EkzjrYH",
+      yearlyPriceId: "price_1NiGeXLg8nvmDPHikaM8OINN",
       icon: <FaBrain className="text-4xl text-green-500" />,
     },
     {
