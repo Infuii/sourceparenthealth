@@ -90,7 +90,7 @@ export default function Introduction() {
   const subtitle =
     "Share with your children and students but also reflect on the prompts for yourself. “we must not prepare the road for the child but prepare the child for the road”. So, if you have to be the one leading this preparation, would’nt you have to be at the top of your game too?  ";
 
-  const ebookCoverSrc = "https://picsum.photos/200/300";
+  const ebookCoverSrc = "/thepreparedteenadult.png";
   const backgroundCoverSrc =
     "https://images.unsplash.com/photo-1498496294664-d9372eb521f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80";
 
