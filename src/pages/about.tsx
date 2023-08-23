@@ -30,8 +30,7 @@ export default function About() {
             className="z-0 w-full bg-cover bg-center"
             style={{
               height: "75vh",
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1574158622682-e40e69881006')",
+              backgroundImage: "url('/Kids-863053_1920.jpg')",
             }}
           >
             <div className="flex h-full w-full items-center justify-center bg-black bg-opacity-50 text-5xl font-semibold text-white">
@@ -135,11 +134,7 @@ export default function About() {
                 </p>
               </div>
               <div className="w-full md:w-1/2">
-                <img
-                  src="https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt="Nutrition"
-                  className="w-full"
-                />
+                <img src="IMG_5814.jpg" alt="Nutrition" className="w-full" />
               </div>
             </motion.div>
           </section>
@@ -198,11 +193,7 @@ export default function About() {
                 </p>
               </div>
               <div className="w-full md:w-1/2">
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7"
-                  alt="Family"
-                  className="w-full"
-                />
+                <img src="/IMG_6123.jpg" alt="Family" className=" w-full" />
               </div>
             </motion.div>
           </section>

@@ -20,7 +20,7 @@ export default function Pictures() {
     {
       id: 1,
       name: "Picture 1",
-      url: "https://picsum.photos/200/300",
+      url: "/IMG_1625.JPG",
       category: "Food",
     },
     {
