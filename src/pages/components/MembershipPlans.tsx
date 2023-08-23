@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { loadStripe } from "@stripe/stripe-js";
+const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
+if (!stripePublishableKey) {
+  throw new Error("Stripe Publishable Key is not set");
+}
+
+const stripePromise = loadStripe(stripePublishableKey);
 // Add the type for membership plan
 type MembershipPlanType = {
   title: string;
@@ -24,8 +31,35 @@ const membershipPlans: MembershipPlanType[] = [
 ];
 
 const MembershipPlans: React.FC = () => {
+  const selectedPriceId = "price_1Ni3eRLg8nvmDPHioUDa2CBO";
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const handlePurchase = async (selectedPriceId: string) => {
+    try {
+      // Call your backend to create the Checkout Session
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedPriceId }),
+      });
 
+      const data: { sessionId: string } = (await response.json()) as never;
+      console.log("Received sessionId from backend:", data.sessionId);
+      const { sessionId } = data;
+
+      // When the customer clicks on the button, redirect them to Checkout.
+      const stripe = await stripePromise;
+      if (stripe !== null) {
+        const { error } = await stripe.redirectToCheckout({ sessionId });
+        if (error) {
+          console.log(error);
+        }
+      }
+    } catch (err) {
+      console.error("There was an error with the purchase process:", err);
+    }
+  };
   const toggleExpand = (index: number) => {
     if (expandedIndex === index) {
       setExpandedIndex(null);
@@ -88,7 +122,10 @@ const MembershipPlans: React.FC = () => {
                 >
                   Book a session
                 </Link>
-                <button className="rounded bg-red-500 px-4 py-2 text-white">
+                <button
+                  className="rounded bg-red-500 px-4 py-2 text-white"
+                  onClick={() => void handlePurchase(selectedPriceId as never)}
+                >
                   Buy
                 </button>
               </div>
