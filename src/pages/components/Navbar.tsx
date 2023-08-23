@@ -148,7 +148,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
           <Link href="/pictures">Pictures</Link>
         </div>
       </div>
-      {/* <div className="hidden sm:flex sm:items-center">
+      <div className="hidden sm:flex sm:items-center">
         {sessionData ? (
           <div className="flex items-center">
             <img
@@ -157,7 +157,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
               className="h-8 w-8 cursor-pointer rounded-full"
             />
             <button
-              className="ml-2 rounded bg-white px-2 py-1 text-xs font-bold text-black sm:ml-4 sm:text-sm"
+              className="ml-2 hidden rounded bg-white px-2 py-1 text-xs font-bold text-black sm:ml-4 sm:text-sm"
               onClick={() => void signOut()}
             >
               Sign out
@@ -165,13 +165,13 @@ export default function Navbar({ sessionData }: NavbarProps) {
           </div>
         ) : (
           <button
-            className="rounded bg-white px-2 py-1 text-xs font-bold text-black sm:text-sm"
+            className="hidden rounded bg-white px-2 py-1 text-xs font-bold text-black sm:text-sm"
             onClick={() => void signIn()}
           >
             Sign in
           </button>
         )}
-      </div> */}
+      </div>
     </nav>
   );
 }
