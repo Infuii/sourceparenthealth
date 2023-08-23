@@ -130,6 +130,7 @@ export default function One() {
 
   return (
     <div className="main m-0 min-h-screen items-center justify-center bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] p-0 pb-16 text-center">
+      {/* third course */}
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
       <Scroller />
       <Navbar sessionData={sessionData as never} />
