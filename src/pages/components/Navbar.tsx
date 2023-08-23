@@ -148,7 +148,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
           <Link href="/pictures">Pictures</Link>
         </div>
       </div>
-      <div className="hidden sm:flex sm:items-center">
+      {/* <div className="hidden sm:flex sm:items-center">
         {sessionData ? (
           <div className="flex items-center">
             <img
@@ -171,7 +171,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
             Sign in
           </button>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 }
