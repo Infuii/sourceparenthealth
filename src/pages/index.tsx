@@ -35,7 +35,14 @@ const testimonialList = [
     main: "I experienced abundant energy with Sarah’s coaching",
     title: "Professional Engineer, Canada",
     body: "Sarah’s workshop has “re-calibrated” my perception on personal health and well-being; our most cherished gift.  Sarah’s in-depth knowledge on the subject, and motivation, is apparent in her delivery. Her approach on nutrition, emotional  and spiritual health has allowed me to examine my life in a holistic manner, and enhance it. Weight loss and increased energy are just a few of the many benefits I have reaped from this workshop, . I feel privileged to have had the opportunity to engage with such a wonderful group of women. This series should become a permanent program offered to all families.",
-    image: "",
+    image: "/filler.webp",
+  },
+  {
+    name: "Sheila Osta",
+    main: "With Sarah’s coaching I can see light at the end of the tunnel",
+    title: "School Teacher, Karnataka India",
+    body: "It's been a few weeks since I have started my diabetes reversal journey with health coach Sarah Musavi. Sarah takes a keen interest in hearing me out without rushing through the session. I must admit that each session has been truly intriguing and engaging . She is so very dedicated that we lose track of time going beyond an hour sometimes. I feel truly inspired and encouraged about my reversal process each time I have a session. I have now begun seeing the light at the end of my tunnel. I would definitely recommend you to give her a shot . It would well be worth your time . Kudos to you Sarah !",
+    image: "/sheila.jpg",
   },
 ];
 
