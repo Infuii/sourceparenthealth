@@ -32,7 +32,7 @@ export default function Pictures() {
     {
       id: 3,
       name: "Picture 3",
-      url: "/IMG_6343.JPG",
+      url: "/IMG_5720.jpg",
       category: "People",
     },
     {

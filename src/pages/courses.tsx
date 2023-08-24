@@ -112,7 +112,7 @@ export default function Courses() {
       description:
         "Go beyond basic habits with one-on-one customized sessions. Focus on thought nourishment, influence at home and work, a healthier money mindset, and abundant energy.",
       monthlyPrice: "$225",
-      monthlyFrequency: "6 months",
+      monthlyFrequency: "month for 6 months",
       yearlyPrice: "$1260",
       yearlyFrequency: "per year",
       advantages: [
