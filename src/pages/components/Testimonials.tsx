@@ -40,7 +40,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(goForward, 7500);
+    const timer = setTimeout(goForward, 12500);
     return () => clearTimeout(timer);
   }, [currentTestimonial]);
   useEffect(() => {
@@ -48,8 +48,8 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = [] }) => {
   }, []);
   useEffect(() => {
     setIsLoaded(false);
-    const fadeInTimer = setTimeout(() => setIsLoaded(true), 500);
-    const fadeOutTimer = setTimeout(() => setIsLoaded(false), 7000);
+    const fadeInTimer = setTimeout(() => setIsLoaded(true), 1000);
+    const fadeOutTimer = setTimeout(() => setIsLoaded(false), 12500);
     return () => {
       clearTimeout(fadeInTimer);
       clearTimeout(fadeOutTimer);

@@ -75,11 +75,10 @@ const Footer = () => {
           <h2 className="mb-4 border-b border-gray-500 pb-2 text-lg font-semibold">
             Contact
           </h2>
-          <p>Email: info@sourceparenthealth.com</p>
+          <p>Email: contact@sourceparenthealth.com</p>
           <Link href="/contact">
             <p>Contact Page</p>
           </Link>
-          <p>Phone: (123) 456-7890</p>
         </div>
 
         {/* Newsletter sign up section */}
