@@ -648,7 +648,7 @@ export default function Introduction() {
             <p className="text-lg">
               Dont you want to enjoy your food without thinking too much about
               the nutrients? However, you also want your favourite foods to
-              moorish you for energy and not upset your stomach or give you
+              nourish you for energy and not upset your stomach or give you
               ulcers and headaches or add more weight to your body than you need
               to. How does it all work? Why do some people eat whatever they
               want and yet stay slim and energetic while some of us count each
