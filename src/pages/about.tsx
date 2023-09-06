@@ -27,9 +27,8 @@ export default function About() {
         >
           {/* Hero Section */}
           <section
-            className="z-0 w-full bg-cover bg-no-repeat"
+            className="z-0 h-[42.5vh] w-full bg-cover bg-no-repeat sm:h-[50vh] md:h-[60vh] lg:h-[75vh]"
             style={{
-              height: "75vh",
               backgroundImage: "url('/family.webp')",
             }}
           >

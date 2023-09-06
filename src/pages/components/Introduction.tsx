@@ -99,7 +99,7 @@ export default function Introduction() {
       <div className="z-1 relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className="z-1 justify-top relative top-10 flex h-[140vh] w-4/5 flex-col items-center rounded-lg bg-pink-100 px-10 shadow-lg lg:w-1/2 lg:w-[100vh] lg:gap-10"
+          className="z-1 justify-top relative top-10 flex h-[140vh] w-4/5 flex-col items-center gap-5 rounded-lg bg-pink-100 px-10 shadow-lg lg:w-1/2 lg:w-[100vh] lg:gap-10"
           style={{
             width: "100%",
             backgroundBlendMode: "multiply",
@@ -133,7 +133,7 @@ export default function Introduction() {
           </motion.h5>
           <motion.p
             ref={ref5}
-            className="relative top-5 tracking-wide text-gray-500 text-white"
+            className="relative top-5 text-center tracking-wide text-gray-500 text-white sm:text-xl md:text-2xl"
             style={{ fontFamily: "Montserrat" }}
             variants={fadeIn}
             initial="hidden"
