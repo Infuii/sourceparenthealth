@@ -133,7 +133,7 @@ export default function Courses() {
   ];
 
   return (
-    <div className="main m-0 min-h-screen w-[70vh] bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] p-0 pb-16 md:w-full lg:w-full xl:w-full 2xl:w-full">
+    <div className="main m-0 min-h-screen w-[110vh] bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] p-0 pb-16 md:w-full lg:w-full xl:w-full 2xl:w-full">
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
 
       <Scroller />
@@ -181,7 +181,7 @@ export default function Courses() {
           return (
             <motion.div
               key={course.title}
-              className={`relative flex h-[700px] w-[350px] flex-col justify-between rounded-lg border border-t-4 border-black border-green-400 p-5 shadow shadow-xl transition-all duration-500 ease-in-out hover:border-8 ${
+              className={`relative flex h-[700px] w-[350px] flex-col justify-between rounded-lg border border-t-4 border-black border-green-400 p-5 shadow shadow-xl transition-all duration-500 ease-in-out hover:border-8 md:h-[950px] lg:h-[700px] xl:h-[700px] ${
                 index === 1 ? "scale-105 transform text-black" : "bg-gray-100"
               }`}
               initial={{ opacity: 0 }}

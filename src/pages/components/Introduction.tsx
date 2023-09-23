@@ -99,14 +99,13 @@ export default function Introduction() {
       <div className="z-1 relative flex items-center justify-center">
         <motion.div
           ref={ref1}
-          className="z-1 justify-top relative top-10 flex h-[140vh] w-4/5 flex-col items-center gap-5 rounded-lg bg-pink-100 px-10 shadow-lg lg:w-1/2 lg:w-[100vh] lg:gap-10"
+          className="z-1 justify-top relative top-10 flex h-[140vh] w-4/5 flex-col items-center gap-5 rounded-lg bg-pink-100 bg-right object-fill object-center px-10 shadow-lg lg:w-1/2 lg:w-[100vh] lg:gap-10"
           style={{
             width: "100%",
             backgroundBlendMode: "multiply",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             backgroundImage: "url('/IMG_5555.jpg')",
             backgroundSize: "cover",
-            backgroundPosition: "center",
           }}
         >
           <hr className="h-3 border-gray-300"></hr>
@@ -288,7 +287,7 @@ export default function Introduction() {
           <Element name="newsletterSection"></Element>
           <motion.div
             ref={ref5}
-            className="absolute flex flex w-2/5 items-center justify-center md:top-[95vh] lg:top-[100vh] xl:top-[65vh]"
+            className="absolute flex flex w-2/5 items-center justify-center md:top-[75vh] lg:top-[100vh] xl:top-[65vh]"
             transition={{ duration: 1.5, delay: 0.75 }}
             initial="hidden"
             animate={inView5 ? "visible" : "hidden"}
@@ -296,7 +295,7 @@ export default function Introduction() {
           >
             <div
               ref={newsletter}
-              className="relative top-[60vh] w-2/3 md:top-[5vh] lg:top-[5vh] xl:top-[30vh]"
+              className="xl: w-2/3sm:w-full relative top-[79vh] md:top-[5vh] md:w-full lg:top-[5vh] lg:w-2/3 xl:top-[30vh]"
               style={{ position: "relative" }}
             >
               <h1 className="text-center text-3xl text-gray-300">

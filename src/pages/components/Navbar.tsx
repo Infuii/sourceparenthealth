@@ -68,7 +68,7 @@ export default function Navbar({ sessionData }: NavbarProps) {
       >
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-10">
           {/* Dropdown */}
-          <div className="group relative">
+          <div className="group relative hidden sm:block">
             <button
               className="focus:outline-none"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
