@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import AuthShowcase from "./components/AuthShowcase";
 import Scroller from "./components/Scroller";
 import Footer from "./components/Footer";
+import Head from "next/head";
 
 export default function Contact() {
   const { data: sessionData } = useSession();
@@ -115,6 +116,9 @@ export default function Contact() {
 
   return (
     <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
+      <Head>
+        <link rel="icon" type="image/png" sizes="16x16" href="/sphlogop.png" />
+      </Head>
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
       <Scroller />
       <Navbar sessionData={sessionData as never} />

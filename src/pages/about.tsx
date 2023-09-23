@@ -6,6 +6,7 @@ import AuthShowcase from "./components/AuthShowcase";
 import Scroller from "./components/Scroller";
 import Socials from "./components/Socials";
 import Footer from "./components/Footer";
+import Head from "next/head";
 
 export default function About() {
   const { data: sessionData } = useSession();
@@ -13,7 +14,9 @@ export default function About() {
   return (
     <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
-
+      <Head>
+        <link rel="icon" type="image/png" sizes="16x16" href="/sphlogop.png" />
+      </Head>
       <Scroller />
       <Navbar sessionData={sessionData as never} />
       <div className="flex flex-col items-center gap-2">

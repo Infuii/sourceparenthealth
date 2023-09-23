@@ -7,6 +7,7 @@ import Introduction from "./components/Introduction";
 import Socials from "./components/Socials";
 import SocialsAlert from "./components/SocialsAlert";
 import Footer from "./components/Footer";
+import Head from "next/head";
 
 const testimonialList = [
   {
@@ -50,7 +51,11 @@ export default function Home() {
   const { data: sessionData } = useSession();
   return (
     <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
+      <Head>
+        <link rel="icon" type="image/png" sizes="16x16" href="/sphlogop.png" />
+      </Head>
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
+
       <Scroller />
       <Navbar sessionData={sessionData as never} />
       <div className="flex flex-col items-center gap-2">

@@ -106,6 +106,7 @@ export default function Introduction() {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             backgroundImage: "url('/IMG_5555.jpg')",
             backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
           }}
         >
           <hr className="h-3 border-gray-300"></hr>
@@ -291,7 +292,6 @@ export default function Introduction() {
             transition={{ duration: 1.5, delay: 0.75 }}
             initial="hidden"
             animate={inView5 ? "visible" : "hidden"}
-            variants={fadeIn}
           >
             <div
               ref={newsletter}

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Scroller from "./components/Scroller";
 import AuthShowcase from "./components/AuthShowcase";
 import Footer from "./components/Footer";
+import Head from "next/head";
 
 export default function Pictures() {
   const { data: sessionData } = useSession();
@@ -155,7 +156,9 @@ export default function Pictures() {
     <div className="main min-h-screen bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] pb-16">
       <Navbar sessionData={sessionData as never} />
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
-
+      <Head>
+        <link rel="icon" type="image/png" sizes="16x16" href="/sphlogop.png" />
+      </Head>
       <Scroller />
       <br />
       <br />

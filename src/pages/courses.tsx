@@ -10,6 +10,7 @@ import Link from "next/link";
 import MembershipPlans from "./components/MembershipPlans";
 import Footer from "./components/Footer";
 import { loadStripe } from "@stripe/stripe-js";
+import Head from "next/head";
 const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
 if (!stripePublishableKey) {
@@ -135,7 +136,9 @@ export default function Courses() {
   return (
     <div className="main m-0 min-h-screen w-[110vh] bg-gradient-to-r from-[#D2D2D2] to-[#D1D1D1] p-0 pb-16 md:w-full lg:w-full xl:w-full 2xl:w-full">
       <div className="fixed z-50 h-2 w-full bg-[#E9E9E9]"></div>
-
+      <Head>
+        <link rel="icon" type="image/png" sizes="16x16" href="/sphlogop.png" />
+      </Head>
       <Scroller />
       <Navbar sessionData={sessionData as never} />
       <div className="flex flex-col items-center gap-2">
