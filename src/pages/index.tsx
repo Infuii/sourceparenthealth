@@ -58,7 +58,7 @@ export default function Home() {
           property="og:description"
           content="Transforming the health of families through personalized coaching"
         />
-        <meta property="og:image" content="/sphlogo.png" />
+        <meta property="og:image" content="/sphlogop.png" />
         <meta property="og:url" content="https://sourceparenthealth.com" />
         <meta property="og:type" content="website" />
       </Head>
