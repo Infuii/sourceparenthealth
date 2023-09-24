@@ -60,7 +60,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://sourceparenthealth.com/sphlogop.png"
+          content="https://sourceparenthealth.com/sphblack.jpg"
         />
         <meta property="og:url" content="https://sourceparenthealth.com" />
         <meta property="og:type" content="website" />
