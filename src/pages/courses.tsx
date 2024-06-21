@@ -229,13 +229,17 @@ export default function Courses() {
                   </motion.div>
                 ))}
               </div>
+              <div className="text-sm text-gray-500">
+                Connect with Sara here:
+              </div>
+
               <div>
-                <button
-                  className="w-full rounded bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-500 ease-in-out hover:border-4 hover:border-transparent hover:bg-blue-700 hover:shadow-lg"
-                  onClick={() => void handlePurchase(selectedPriceId)}
+                <a
+                  href="https://calendly.com/sourceparenthealth/3-month-biweekly-60-min-sessions-one-on-one"
+                  className="text-blue-500"
                 >
-                  Opt in
-                </button>
+                  Calendly
+                </a>
               </div>
             </motion.div>
           );
