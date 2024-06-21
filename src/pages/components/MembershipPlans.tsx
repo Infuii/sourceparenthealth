@@ -115,19 +115,19 @@ const MembershipPlans: React.FC = () => {
                   {plan.monthlyPrice})
                 </p>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-center">
                 <Link
                   className="rounded bg-green-500 px-4 py-2 text-white"
                   href={"https://calendly.com/sourceparenthealth"}
                 >
                   Book a session
                 </Link>
-                <button
+                {/* <button
                   className="rounded bg-red-500 px-4 py-2 text-white"
                   onClick={() => void handlePurchase(selectedPriceId as never)}
                 >
                   Buy
-                </button>
+                </button> */}
               </div>
             </div>
           </motion.div>
