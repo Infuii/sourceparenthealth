@@ -14,7 +14,7 @@ export default async function handler(req: { method: string; body: { email: neve
         },
       })
     );
-    const mailList = ["sourceparenthealthlife@gmail.com", "contact@sourceparenthealth.com", email];
+    const mailList = ["sourceparenthealthlife@gmail.com", "mynourishedkitchentable@gmail.com", "contact@sourceparenthealth.com", email];
 
     try {
       await transporter.sendMail({
