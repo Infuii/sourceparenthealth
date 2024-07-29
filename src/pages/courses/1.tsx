@@ -192,7 +192,7 @@ export default function One() {
                 </button>
               </div> */}
               <div className="text-sm text-gray-500">
-                Connect with Sara here:
+                Connect with Sarah here:
               </div>
 
               <div>
